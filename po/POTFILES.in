@@ -1,0 +1,16 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/resources/shortcuts-dialog.ui
+data/resources/ui/device-row.ui
+data/resources/ui/pairing-dialog.ui
+data/resources/ui/preferences-dialog.ui
+data/resources/ui/window.ui
+data/tech.vitainside.mirage.desktop.in.in
+data/tech.vitainside.mirage.gschema.xml.in
+data/tech.vitainside.mirage.metainfo.xml.in.in
+src/application.rs
+src/main.rs
+src/widgets/device_row.rs
+src/widgets/pairing_dialog.rs
+src/widgets/preferences_dialog.rs
+src/widgets/window.rs
