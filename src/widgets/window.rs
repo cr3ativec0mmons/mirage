@@ -139,6 +139,9 @@ mod imp {
 
             let sessions = self.sessions.borrow().len();
             if sessions == 0 {
+                if let Some(tracker) = self.tracker.get() {
+                    tracker.shutdown();
+                }
                 return self.parent_close_request();
             }
             if !self.closing.get() {
@@ -336,6 +339,7 @@ impl MirageWindow {
         let imp = self.imp();
         match event {
             discovery::Event::Resolved(service) => {
+                tracing::debug!("Found {} at {}", service.instance, service.address);
                 imp.connect_services
                     .borrow_mut()
                     .insert(service.fullname.clone(), service.clone());
@@ -399,6 +403,9 @@ impl MirageWindow {
             .filter(|service| service.ip.to_string() == host)
             .cloned()
             .collect();
+        if services.is_empty() {
+            tracing::debug!("No wireless debugging service found for {host} yet");
+        }
         for service in services {
             imp.connect_attempts.borrow_mut().remove(&service.address);
             self.auto_connect(&service);

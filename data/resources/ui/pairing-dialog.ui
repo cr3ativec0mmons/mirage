@@ -237,6 +237,7 @@
                             <child>
                               <object class="AdwEntryRow" id="address_row">
                                 <property name="title" translatable="yes">IP Address &amp; Port</property>
+                                <property name="use-markup">False</property>
                                 <property name="input-purpose">free-form</property>
                               </object>
                             </child>

@@ -144,6 +144,11 @@ impl AdbClient {
         Ok(output)
     }
 
+    /// Stops the server, which disconnects every device.
+    pub fn kill_server(&self) -> Result<()> {
+        self.open("host:kill").map(drop)
+    }
+
     /// Opens a stream that sends the device list every time it changes.
     pub fn track_devices(&self) -> Result<DeviceListStream> {
         let stream = self.open("host:track-devices-l")?;
