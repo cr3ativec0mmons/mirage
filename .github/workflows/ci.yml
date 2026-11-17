@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [main]
@@ -56,5 +59,8 @@ jobs:
         with:
           bundle: mirage-devel-${{ matrix.arch }}.flatpak
           manifest-path: build-aux/tech.vitainside.mirage.Devel.json
-          cache-key: flatpak-builder-${{ matrix.arch }}-${{ hashFiles('build-aux/modules/*.json') }}
+          cache: false
+          build-dir: /tmp/flatpak_app
+          repo-dir: /tmp/flatpak_repo
+          state-dir: /tmp/flatpak_builder
           arch: ${{ matrix.arch }}
