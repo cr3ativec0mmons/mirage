@@ -1,0 +1,802 @@
+# Spanish translation for Mirage.
+# Copyright (C) 2026 Mirage contributors
+# This file is distributed under the same license as the mirage package.
+# Martín Nehuen Quiroga Torres, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mirage\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-17 16:57-0300\n"
+"PO-Revision-Date: 2026-11-17 16:45-0300\n"
+"Last-Translator: Martín Nehuen Quiroga Torres\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/resources/shortcuts-dialog.ui:6
+msgid "General"
+msgstr "General"
+
+#: data/resources/shortcuts-dialog.ui:9 data/resources/ui/pairing-dialog.ui:4
+#: data/resources/ui/pairing-dialog.ui:13 data/resources/ui/window.ui:32
+msgid "Pair Device"
+msgstr "Vincular dispositivo"
+
+#: data/resources/shortcuts-dialog.ui:15
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: data/resources/shortcuts-dialog.ui:21
+msgid "Keyboard Shortcuts"
+msgstr "Atajos del teclado"
+
+#: data/resources/shortcuts-dialog.ui:27
+msgid "Close Window"
+msgstr "Cerrar la ventana"
+
+#: data/resources/shortcuts-dialog.ui:33
+msgid "Quit"
+msgstr "Salir"
+
+#: data/resources/shortcuts-dialog.ui:41
+msgid "Mirroring Window"
+msgstr "Ventana de duplicación"
+
+#: data/resources/shortcuts-dialog.ui:44
+msgid "Toggle Fullscreen"
+msgstr "Alternar la pantalla completa"
+
+#: data/resources/shortcuts-dialog.ui:50
+msgid "Resize to Fit"
+msgstr "Ajustar el tamaño al contenido"
+
+#: data/resources/shortcuts-dialog.ui:56
+msgid "Resize to Original Size"
+msgstr "Restablecer el tamaño original"
+
+#: data/resources/shortcuts-dialog.ui:62
+msgid "Home"
+msgstr "Inicio"
+
+#: data/resources/shortcuts-dialog.ui:68
+msgid "Back"
+msgstr "Atrás"
+
+#: data/resources/shortcuts-dialog.ui:74
+msgid "Recent Apps"
+msgstr "Aplicaciones recientes"
+
+#: data/resources/shortcuts-dialog.ui:80
+msgid "Power Button"
+msgstr "Botón de encendido"
+
+#: data/resources/shortcuts-dialog.ui:86
+msgid "Volume Up"
+msgstr "Subir el volumen"
+
+#: data/resources/shortcuts-dialog.ui:92
+msgid "Volume Down"
+msgstr "Bajar el volumen"
+
+#: data/resources/shortcuts-dialog.ui:98
+msgid "Rotate Device Screen"
+msgstr "Girar la pantalla del dispositivo"
+
+#: data/resources/shortcuts-dialog.ui:104
+msgid "Turn Device Screen Off"
+msgstr "Apagar la pantalla del dispositivo"
+
+#: data/resources/shortcuts-dialog.ui:110
+msgid "Turn Device Screen On"
+msgstr "Encender la pantalla del dispositivo"
+
+#: data/resources/shortcuts-dialog.ui:116
+msgid "Open Notifications"
+msgstr "Abrir las notificaciones"
+
+#: data/resources/shortcuts-dialog.ui:122
+msgid "Copy Device Clipboard"
+msgstr "Copiar el portapapeles del dispositivo"
+
+#: data/resources/shortcuts-dialog.ui:128
+msgid "Paste Computer Clipboard"
+msgstr "Pegar el portapapeles del equipo"
+
+#: data/resources/shortcuts-dialog.ui:134 src/widgets/device_row.rs:100
+msgid "Stop Mirroring"
+msgstr "Detener la duplicación"
+
+#: data/resources/ui/device-row.ui:24 src/widgets/device_row.rs:125
+msgid "Record Screen"
+msgstr "Grabar la pantalla"
+
+#: data/resources/ui/device-row.ui:34 src/widgets/device_row.rs:105
+msgid "Mirror Screen"
+msgstr "Duplicar la pantalla"
+
+#: data/resources/ui/pairing-dialog.ui:29
+msgid "_QR Code"
+msgstr "Código _QR"
+
+#: data/resources/ui/pairing-dialog.ui:36
+msgid "Pairing _Code"
+msgstr "_Código de vinculación"
+
+#: data/resources/ui/pairing-dialog.ui:71
+msgid "QR code for pairing"
+msgstr "Código QR para vincular"
+
+#: data/resources/ui/pairing-dialog.ui:79
+msgid ""
+"On your device, open <b>Developer options</b>, then <b>Wireless debugging</"
+"b>, tap <b>Pair device with QR code</b> and scan this code."
+msgstr ""
+"En el dispositivo, abra <b>Opciones para desarrolladores</b>, luego "
+"<b>Depuración inalámbrica</b>, toque <b>Vincular dispositivo con código QR</"
+"b> y escanee este código."
+
+#: data/resources/ui/pairing-dialog.ui:101 src/widgets/pairing_dialog.rs:233
+msgid "Waiting for the device…"
+msgstr "Esperando al dispositivo…"
+
+#: data/resources/ui/pairing-dialog.ui:130 data/resources/ui/window.ui:95
+msgid "_Try Again"
+msgstr "_Reintentar"
+
+#: data/resources/ui/pairing-dialog.ui:147
+msgid "The computer and the device must be connected to the same network."
+msgstr "El equipo y el dispositivo deben estar conectados a la misma red."
+
+#: data/resources/ui/pairing-dialog.ui:171
+msgid "Available Devices"
+msgstr "Dispositivos disponibles"
+
+#: data/resources/ui/pairing-dialog.ui:172
+msgid ""
+"On your device, open Developer options › Wireless debugging and tap Pair "
+"device with pairing code."
+msgstr ""
+"En el dispositivo, abra Opciones para desarrolladores › Depuración "
+"inalámbrica y toque Vincular dispositivo con código de vinculación."
+
+#: data/resources/ui/pairing-dialog.ui:175
+msgid "Searching for Devices"
+msgstr "Buscando dispositivos"
+
+#: data/resources/ui/pairing-dialog.ui:186
+msgid "No devices ready to pair"
+msgstr "No hay dispositivos listos para vincular"
+
+#: data/resources/ui/pairing-dialog.ui:205
+msgid "_Enter Address Manually"
+msgstr "_Introducir la dirección manualmente"
+
+#: data/resources/ui/pairing-dialog.ui:225
+msgid "Enter Pairing Code"
+msgstr "Introducir el código de vinculación"
+
+#: data/resources/ui/pairing-dialog.ui:236
+msgid "Enter the address and the six-digit code shown on your device."
+msgstr ""
+"Introduzca la dirección y el código de seis dígitos que se muestran en el "
+"dispositivo."
+
+#: data/resources/ui/pairing-dialog.ui:239
+msgid "IP Address & Port"
+msgstr "Dirección IP y puerto"
+
+#: data/resources/ui/pairing-dialog.ui:245
+msgid "Pairing Code"
+msgstr "Código de vinculación"
+
+#: data/resources/ui/pairing-dialog.ui:255 src/widgets/pairing_dialog.rs:357
+msgid "_Pair"
+msgstr "_Vincular"
+
+#: data/resources/ui/preferences-dialog.ui:7
+msgid "Mirroring"
+msgstr "Duplicación"
+
+#: data/resources/ui/preferences-dialog.ui:11
+msgid "Video"
+msgstr "Vídeo"
+
+#: data/resources/ui/preferences-dialog.ui:14
+#: data/resources/ui/preferences-dialog.ui:159
+msgid "_Codec"
+msgstr "_Códec"
+
+#: data/resources/ui/preferences-dialog.ui:20
+msgid "Maximum _Resolution"
+msgstr "_Resolución máxima"
+
+#: data/resources/ui/preferences-dialog.ui:26
+msgid "Maximum _Frame Rate"
+msgstr "Tasa de _fotogramas máxima"
+
+#: data/resources/ui/preferences-dialog.ui:32
+msgid "_Bit Rate"
+msgstr "_Tasa de bits"
+
+#: data/resources/ui/preferences-dialog.ui:33
+msgid "Megabits per second"
+msgstr "Megabits por segundo"
+
+#: data/resources/ui/preferences-dialog.ui:48
+msgid "_Hardware Decoding"
+msgstr "Decodificación por _hardware"
+
+#: data/resources/ui/preferences-dialog.ui:56
+msgid "Display"
+msgstr "Pantalla"
+
+#: data/resources/ui/preferences-dialog.ui:59
+msgid "_New Display"
+msgstr "Pantalla _nueva"
+
+#: data/resources/ui/preferences-dialog.ui:60
+msgid ""
+"Show a separate virtual display instead of the screen of the device. "
+"Requires Android 10 or later."
+msgstr ""
+"Mostrar una pantalla virtual independiente en lugar de la pantalla del "
+"dispositivo. Requiere Android 10 o posterior."
+
+#: data/resources/ui/preferences-dialog.ui:65
+msgid "Resolution"
+msgstr "Resolución"
+
+#: data/resources/ui/preferences-dialog.ui:70
+msgid "Pixel Density"
+msgstr "Densidad de píxeles"
+
+#: data/resources/ui/preferences-dialog.ui:71
+msgid "Dots per inch"
+msgstr "Puntos por pulgada"
+
+#: data/resources/ui/preferences-dialog.ui:88
+msgid "Device"
+msgstr "Dispositivo"
+
+#: data/resources/ui/preferences-dialog.ui:91
+msgid "_Turn Screen Off"
+msgstr "_Apagar la pantalla"
+
+#: data/resources/ui/preferences-dialog.ui:92
+msgid "Keep mirroring with the screen of the device turned off"
+msgstr "Seguir duplicando con la pantalla del dispositivo apagada"
+
+#: data/resources/ui/preferences-dialog.ui:98
+msgid "_Stay Awake"
+msgstr "_Mantener activo"
+
+#: data/resources/ui/preferences-dialog.ui:99
+msgid "Prevent the device from sleeping while it is plugged in"
+msgstr "Evitar que el dispositivo se suspenda mientras está conectado"
+
+#: data/resources/ui/preferences-dialog.ui:109
+msgid "Input"
+msgstr "Entrada"
+
+#: data/resources/ui/preferences-dialog.ui:113
+msgid "Input Devices"
+msgstr "Dispositivos de entrada"
+
+#: data/resources/ui/preferences-dialog.ui:114
+msgid ""
+"Hardware emulation makes the device see a real keyboard, mouse or gamepad. "
+"With an emulated keyboard, the layout must be set on the device. Emulation "
+"over USB only works with a cable."
+msgstr ""
+"La emulación por hardware hace que el dispositivo vea un teclado, un ratón o "
+"un mando reales. Con un teclado emulado, la distribución se debe configurar "
+"en el dispositivo. La emulación mediante USB solo funciona con un cable."
+
+#: data/resources/ui/preferences-dialog.ui:117
+msgid "_Keyboard"
+msgstr "_Teclado"
+
+#: data/resources/ui/preferences-dialog.ui:123
+msgid "_Mouse"
+msgstr "_Ratón"
+
+#: data/resources/ui/preferences-dialog.ui:129
+msgid "_Gamepad"
+msgstr "_Mando"
+
+#: data/resources/ui/preferences-dialog.ui:139
+msgid "Audio"
+msgstr "Sonido"
+
+#: data/resources/ui/preferences-dialog.ui:145
+msgid "_Forward Audio"
+msgstr "_Reenviar el sonido"
+
+#: data/resources/ui/preferences-dialog.ui:146
+msgid ""
+"Play the sound of the device on this computer. Requires Android 11 or later."
+msgstr ""
+"Reproducir el sonido del dispositivo en este equipo. Requiere Android 11 o "
+"posterior."
+
+#: data/resources/ui/preferences-dialog.ui:152
+msgid "_Source"
+msgstr "_Origen"
+
+#: data/resources/ui/preferences-dialog.ui:170
+msgid "Recording"
+msgstr "Grabación"
+
+#: data/resources/ui/preferences-dialog.ui:176
+msgid "File _Format"
+msgstr "_Formato de archivo"
+
+#: data/resources/ui/preferences-dialog.ui:182
+msgid "Save Location"
+msgstr "Ubicación de guardado"
+
+#: data/resources/ui/preferences-dialog.ui:190
+msgid "Open Folder"
+msgstr "Abrir la carpeta"
+
+#: data/resources/ui/window.ui:6
+msgid "_Preferences"
+msgstr "_Preferencias"
+
+#: data/resources/ui/window.ui:10
+msgid "_Keyboard Shortcuts"
+msgstr "_Atajos del teclado"
+
+#: data/resources/ui/window.ui:14
+msgid "_About Mirage"
+msgstr "_Acerca de Mirage"
+
+#: data/resources/ui/window.ui:20 data/tech.vitainside.mirage.desktop.in.in:2
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:7 src/application.rs:95
+#: src/main.rs:38
+msgid "Mirage"
+msgstr "Mirage"
+
+#: data/resources/ui/window.ui:41
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#: data/resources/ui/window.ui:68
+msgid "No Devices"
+msgstr "No hay dispositivos"
+
+#: data/resources/ui/window.ui:69
+msgid ""
+"Connect a device with a USB cable, or pair one over Wi-Fi. USB debugging or "
+"wireless debugging must be turned on in the developer options of the device."
+msgstr ""
+"Conecte un dispositivo con un cable USB o vincule uno por Wi-Fi. La "
+"depuración por USB o la depuración inalámbrica deben estar activadas en las "
+"opciones para desarrolladores del dispositivo."
+
+#: data/resources/ui/window.ui:72
+msgid "_Pair Device"
+msgstr "_Vincular dispositivo"
+
+#: data/resources/ui/window.ui:92
+msgid "ADB Is Not Available"
+msgstr "ADB no está disponible"
+
+#: data/resources/ui/window.ui:115
+msgid "Devices"
+msgstr "Dispositivos"
+
+#: data/tech.vitainside.mirage.desktop.in.in:3
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:8
+msgid "Mirror and control your Android devices"
+msgstr "Duplique y controle sus dispositivos Android"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/tech.vitainside.mirage.desktop.in.in:5
+msgid "Android;ADB;scrcpy;Phone;Tablet;Screen;Mirror;Cast;Record;Remote;"
+msgstr "Android;ADB;scrcpy;Teléfono;Móvil;Tableta;Pantalla;Duplicar;Espejo;Transmitir;Grabar;Remoto;"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:7
+msgid "Window width"
+msgstr "Anchura de la ventana"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:11
+msgid "Window height"
+msgstr "Altura de la ventana"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:15
+msgid "Window maximized state"
+msgstr "Estado maximizado de la ventana"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:28
+msgid "Video codec"
+msgstr "Códec de vídeo"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:29
+msgid "The codec used by the device to encode the screen"
+msgstr "El códec que usa el dispositivo para codificar la pantalla"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:33
+msgid "Maximum resolution"
+msgstr "Resolución máxima"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:34
+msgid ""
+"Limit the largest dimension of the video, in pixels. 0 keeps the device "
+"resolution."
+msgstr ""
+"Limitar la dimensión más grande del vídeo, en píxeles. 0 mantiene la "
+"resolución del dispositivo."
+
+#: data/tech.vitainside.mirage.gschema.xml.in:38
+msgid "Maximum frame rate"
+msgstr "Tasa de fotogramas máxima"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:39
+msgid "Limit the frame rate of the screen capture. 0 means no limit."
+msgstr ""
+"Limitar la tasa de fotogramas de la captura de pantalla. 0 significa sin "
+"límite."
+
+#: data/tech.vitainside.mirage.gschema.xml.in:44
+msgid "Video bit rate"
+msgstr "Tasa de bits del vídeo"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:45
+msgid "The video bit rate, in megabits per second"
+msgstr "La tasa de bits del vídeo, en megabits por segundo"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:54
+msgid "Hardware decoding"
+msgstr "Decodificación por hardware"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:55
+msgid "Decode the video with the GPU of the computer"
+msgstr "Decodificar el vídeo con la GPU del equipo"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:61
+msgid "Use a new virtual display"
+msgstr "Usar una pantalla virtual nueva"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:62
+msgid ""
+"Create a separate display on the device instead of mirroring the main one "
+"(Android 10 or later)"
+msgstr ""
+"Crear una pantalla independiente en el dispositivo en lugar de duplicar la "
+"principal (Android 10 o posterior)"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:66
+msgid "Virtual display resolution"
+msgstr "Resolución de la pantalla virtual"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:67
+msgid ""
+"The resolution of the virtual display as WIDTHxHEIGHT, or empty to match the "
+"main display"
+msgstr ""
+"La resolución de la pantalla virtual como ANCHOxALTO, o vacía para usar la "
+"de la pantalla principal"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:72
+msgid "Virtual display density"
+msgstr "Densidad de la pantalla virtual"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:73
+msgid ""
+"The pixel density of the virtual display in dots per inch, or 0 to match the "
+"main display"
+msgstr ""
+"La densidad de píxeles de la pantalla virtual en puntos por pulgada, o 0 "
+"para usar la de la pantalla principal"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:77
+msgid "Turn the device screen off"
+msgstr "Apagar la pantalla del dispositivo"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:81
+msgid "Keep the device awake while it is plugged in"
+msgstr "Mantener el dispositivo activo mientras está conectado"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:93
+msgid "Keyboard input mode"
+msgstr "Modo de entrada del teclado"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:103
+msgid "Mouse input mode"
+msgstr "Modo de entrada del ratón"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:112
+msgid "Gamepad input mode"
+msgstr "Modo de entrada del mando"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:118
+msgid "Forward audio"
+msgstr "Reenviar el sonido"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:119
+msgid "Play the sound of the device on the computer (Android 11 or later)"
+msgstr ""
+"Reproducir el sonido del dispositivo en el equipo (Android 11 o posterior)"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:129
+msgid "Audio codec"
+msgstr "Códec de sonido"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:138
+msgid "Audio source"
+msgstr "Origen del sonido"
+
+#: data/tech.vitainside.mirage.gschema.xml.in:148
+msgid "Recording file format"
+msgstr "Formato de archivo de las grabaciones"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:10
+msgid ""
+"Mirage shows the screen of your Android phone or tablet on your computer, "
+"and lets you control it with your keyboard, mouse and gamepad. It is powered "
+"by scrcpy and needs no app installed on the device."
+msgstr ""
+"Mirage muestra la pantalla de su teléfono o tableta Android en su equipo y "
+"le permite controlarla con el teclado, el ratón y el mando. Funciona con "
+"scrcpy y no necesita instalar ninguna aplicación en el dispositivo."
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:14
+msgid "Connect devices with a USB cable or wirelessly"
+msgstr "Conecte dispositivos con un cable USB o de forma inalámbrica"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:15
+msgid ""
+"Pair new devices over Wi-Fi by scanning a QR code or entering a pairing code"
+msgstr ""
+"Vincule dispositivos nuevos por Wi-Fi escaneando un código QR o "
+"introduciendo un código de vinculación"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:16
+msgid "Record the screen and audio to your Videos folder"
+msgstr "Grabe la pantalla y el sonido en su carpeta de vídeos"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:17
+msgid "Open apps on a separate virtual display"
+msgstr "Abra aplicaciones en una pantalla virtual independiente"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:18
+msgid "Choose the video codec, frame rate and resolution"
+msgstr "Elija el códec de vídeo, la tasa de fotogramas y la resolución"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:19
+msgid "Hardware accelerated video decoding"
+msgstr "Decodificación de vídeo acelerada por hardware"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:21
+msgid ""
+"USB debugging or wireless debugging must be enabled in the developer options "
+"of the device."
+msgstr ""
+"La depuración por USB o la depuración inalámbrica deben estar activadas en "
+"las opciones para desarrolladores del dispositivo."
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:54
+msgid "Android"
+msgstr "Android"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:55
+msgid "ADB"
+msgstr "ADB"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:57
+msgid "Screen Mirroring"
+msgstr "Duplicación de pantalla"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:58
+msgid "Screen Recording"
+msgstr "Grabación de pantalla"
+
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:64
+msgid "First release."
+msgstr "Primera versión."
+
+#. Translators: Replace "translator-credits" with your name and email, one translator per line
+#: src/application.rs:104
+msgid "translator-credits"
+msgstr "Martín Nehuen Quiroga Torres"
+
+#: src/widgets/device_row.rs:90 src/widgets/device_row.rs:160
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: src/widgets/device_row.rs:92 src/widgets/device_row.rs:163
+msgid "USB"
+msgstr "USB"
+
+#: src/widgets/device_row.rs:120
+msgid "Stop Recording"
+msgstr "Detener la grabación"
+
+#: src/widgets/device_row.rs:159
+#, rust-format
+msgid "Wi-Fi · {address}"
+msgstr "Wi-Fi · {address}"
+
+#: src/widgets/device_row.rs:168
+#, rust-format
+msgid "{connection} · Mirroring"
+msgstr "{connection} · Duplicando"
+
+#: src/widgets/device_row.rs:171
+#, rust-format
+msgid "{connection} · Recording"
+msgstr "{connection} · Grabando"
+
+#: src/widgets/device_row.rs:175
+msgid "Allow USB debugging on the device to continue"
+msgstr "Permita la depuración por USB en el dispositivo para continuar"
+
+#: src/widgets/device_row.rs:177
+msgid ""
+"The device cannot be accessed. Installing the Android udev rules on this "
+"computer may fix this."
+msgstr ""
+"No se puede acceder al dispositivo. Instalar las reglas udev de Android en "
+"este equipo puede solucionarlo."
+
+#: src/widgets/device_row.rs:179
+msgid "Connecting…"
+msgstr "Conectando…"
+
+#: src/widgets/device_row.rs:180
+msgid "Offline"
+msgstr "Desconectado"
+
+#: src/widgets/device_row.rs:184
+#, rust-format
+msgid "Unavailable in {state} mode"
+msgstr "No disponible en modo {state}"
+
+#: src/widgets/pairing_dialog.rs:245 src/widgets/pairing_dialog.rs:346
+msgid "Pairing…"
+msgstr "Vinculando…"
+
+#: src/widgets/pairing_dialog.rs:259 src/widgets/pairing_dialog.rs:362
+#, rust-format
+msgid "Pairing failed: {error}"
+msgstr "Falló la vinculación: {error}"
+
+#: src/widgets/preferences_dialog.rs:124
+msgid "Original"
+msgstr "Original"
+
+#. Translators: The size in pixels of the longest side of the video
+#: src/widgets/preferences_dialog.rs:127
+#, rust-format
+msgid "{size} px"
+msgstr "{size} px"
+
+#: src/widgets/preferences_dialog.rs:130
+msgid "Unlimited"
+msgstr "Sin límite"
+
+#. Translators: A frame rate, in frames per second
+#: src/widgets/preferences_dialog.rs:133
+#, rust-format
+msgid "{fps} FPS"
+msgstr "{fps} FPS"
+
+#: src/widgets/preferences_dialog.rs:144
+msgctxt "hardware decoding"
+msgid "Automatic"
+msgstr "Automática"
+
+#: src/widgets/preferences_dialog.rs:146
+msgctxt "hardware decoding"
+msgid "Disabled"
+msgstr "Desactivada"
+
+#: src/widgets/preferences_dialog.rs:157
+msgid "Same as Device"
+msgstr "Igual que el dispositivo"
+
+#: src/widgets/preferences_dialog.rs:171
+#, rust-format
+msgid "{width} × {height}"
+msgstr "{width} × {height}"
+
+#: src/widgets/preferences_dialog.rs:201
+msgid "Standard"
+msgstr "Estándar"
+
+#: src/widgets/preferences_dialog.rs:202 src/widgets/preferences_dialog.rs:215
+msgid "Hardware Emulation"
+msgstr "Emulación por hardware"
+
+#: src/widgets/preferences_dialog.rs:203 src/widgets/preferences_dialog.rs:216
+msgid "Hardware Emulation over USB"
+msgstr "Emulación por hardware mediante USB"
+
+#: src/widgets/preferences_dialog.rs:204 src/widgets/preferences_dialog.rs:214
+msgctxt "input device"
+msgid "Disabled"
+msgstr "Desactivado"
+
+#: src/widgets/preferences_dialog.rs:229
+msgid "Device Output"
+msgstr "Salida del dispositivo"
+
+#: src/widgets/preferences_dialog.rs:230
+msgid "App Playback"
+msgstr "Reproducción de aplicaciones"
+
+#: src/widgets/preferences_dialog.rs:231
+msgid "Microphone"
+msgstr "Micrófono"
+
+#: src/widgets/preferences_dialog.rs:242
+msgid "Uncompressed"
+msgstr "Sin comprimir"
+
+#: src/widgets/preferences_dialog.rs:333 src/widgets/preferences_dialog.rs:340
+msgctxt "pixel density"
+msgid "Automatic"
+msgstr "Automática"
+
+#: src/widgets/window.rs:406
+msgid "Device paired"
+msgstr "Dispositivo vinculado"
+
+#: src/widgets/window.rs:441
+msgid "Could Not Start Recording"
+msgstr "No se pudo iniciar la grabación"
+
+#: src/widgets/window.rs:470
+msgid "Could Not Start Mirroring"
+msgstr "No se pudo iniciar la duplicación"
+
+#: src/widgets/window.rs:492
+#, rust-format
+msgid "{device} was disconnected"
+msgstr "Se desconectó {device}"
+
+#: src/widgets/window.rs:498
+#, rust-format
+msgid "Could Not Record {device}"
+msgstr "No se pudo grabar {device}"
+
+#: src/widgets/window.rs:500
+#, rust-format
+msgid "Could Not Mirror {device}"
+msgstr "No se pudo duplicar {device}"
+
+#: src/widgets/window.rs:511
+msgid "Recording saved"
+msgstr "Grabación guardada"
+
+#: src/widgets/window.rs:512
+msgid "_Show"
+msgstr "_Mostrar"
+
+#: src/widgets/window.rs:539
+msgid "_Close"
+msgstr "_Cerrar"
+
+#: src/widgets/window.rs:546
+msgid "Stop Mirroring?"
+msgstr "¿Detener la duplicación?"
+
+#: src/widgets/window.rs:548
+#, rust-format
+msgid "Mirroring and recording will stop on {count} device."
+msgid_plural "Mirroring and recording will stop on {count} devices."
+msgstr[0] "Se detendrá la duplicación y la grabación en {count} dispositivo."
+msgstr[1] "Se detendrá la duplicación y la grabación en {count} dispositivos."
+
+#: src/widgets/window.rs:554
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#: src/widgets/window.rs:555
+msgid "_Stop and Close"
+msgstr "_Detener y cerrar"
