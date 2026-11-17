@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="glass" x1="34" y1="16" x2="94" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#99c1f1"/>
+      <stop offset="1" stop-color="#1c71d8"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="8" x2="0" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8e45c"/>
+      <stop offset="1" stop-color="#e5a50a"/>
+    </linearGradient>
+    <clipPath id="glass-clip">
+      <ellipse cx="64" cy="54" rx="31" ry="39"/>
+    </clipPath>
+  </defs>
+  <!-- Stand -->
+  <rect x="58" y="96" width="12" height="16" fill="#9a9996"/>
+  <rect x="34" y="108" width="60" height="12" rx="6" fill="#77767b"/>
+  <rect x="34" y="106" width="60" height="10" rx="5" fill="#c0bfbc"/>
+  <!-- Frame, with a darker edge for depth -->
+  <ellipse cx="64" cy="58" rx="38" ry="46" fill="#c64600"/>
+  <ellipse cx="64" cy="54" rx="38" ry="46" fill="url(#frame)"/>
+  <!-- Glass and reflections -->
+  <ellipse cx="64" cy="54" rx="31" ry="39" fill="url(#glass)"/>
+  <g clip-path="url(#glass-clip)" fill="#ffffff">
+    <path d="M 22 60 L 70 4 L 82 4 L 34 60 Z" opacity="0.45"/>
+    <path d="M 40 72 L 96 8 L 102 8 L 46 72 Z" opacity="0.3"/>
+    <path d="M 52 108 L 108 44 L 112 44 L 56 108 Z" opacity="0.2"/>
+  </g>
+</svg>
