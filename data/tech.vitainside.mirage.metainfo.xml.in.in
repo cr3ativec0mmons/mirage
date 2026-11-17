@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2026 Martín Nehuen Quiroga Torres -->
+<component type="desktop-application">
+  <id>@app-id@</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Mirage</name>
+  <summary>Mirror and control your Android devices</summary>
+  <description>
+    <p>
+      Mirage shows the screen of your Android phone or tablet on your computer, and lets you control it with your keyboard, mouse and gamepad. It is powered by scrcpy and needs no app installed on the device.
+    </p>
+    <ul>
+      <li>Connect devices with a USB cable or wirelessly</li>
+      <li>Pair new devices over Wi-Fi by scanning a QR code or entering a pairing code</li>
+      <li>Record the screen and audio to your Videos folder</li>
+      <li>Open apps on a separate virtual display</li>
+      <li>Choose the video codec, frame rate and resolution</li>
+      <li>Hardware accelerated video decoding</li>
+    </ul>
+    <p>
+      USB debugging or wireless debugging must be enabled in the developer options of the device.
+    </p>
+  </description>
+
+  <developer id="tech.vitainside">
+    <name translate="no">Martín Nehuen Quiroga Torres</name>
+  </developer>
+
+  <url type="homepage">https://github.com/cr3ativec0mmons/mirage</url>
+  <url type="bugtracker">https://github.com/cr3ativec0mmons/mirage/issues</url>
+  <url type="vcs-browser">https://github.com/cr3ativec0mmons/mirage</url>
+  <url type="translate">https://github.com/cr3ativec0mmons/mirage/tree/main/po</url>
+
+  <launchable type="desktop-id">@app-id@.desktop</launchable>
+  <translation type="gettext">@gettext-package@</translation>
+  <content_rating type="oars-1.1"/>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#c4e3f3</color>
+    <color type="primary" scheme_preference="dark">#1a4a63</color>
+  </branding>
+
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+
+  <keywords>
+    <keyword>Android</keyword>
+    <keyword>ADB</keyword>
+    <keyword translate="no">scrcpy</keyword>
+    <keyword>Screen Mirroring</keyword>
+    <keyword>Screen Recording</keyword>
+  </keywords>
+
+  <releases>
+    <release version="0.1.0" date="2026-11-17">
+      <description>
+        <p>First release.</p>
+      </description>
+    </release>
+  </releases>
+</component>

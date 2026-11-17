@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Mirage
+Comment=Mirror and control your Android devices
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=Android;ADB;scrcpy;Phone;Tablet;Screen;Mirror;Cast;Record;Remote;
+Exec=mirage
+Icon=@icon@
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Utility;
+StartupNotify=true
+DBusActivatable=true
+X-Purism-FormFactor=Workstation;Mobile;
