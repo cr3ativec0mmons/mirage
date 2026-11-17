@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Lint and test
+    runs-on: ubuntu-24.04
+    # Fedora ships the GTK and libadwaita versions of GNOME 51
+    container: fedora:45
+    steps:
+      - name: Install dependencies
+        run: >
+          dnf install -y --setopt=install_weak_deps=False
+          cargo clippy rustfmt gcc git meson ninja-build gettext
+          desktop-file-utils appstream glib2-devel gtk4-devel libadwaita-devel
+      - uses: actions/checkout@v5
+      - name: Check formatting
+        run: cargo fmt --check
+      - name: Lint
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Build and test
+        run: |
+          meson setup _build -Dprofile=development
+          meson compile -C _build
+          meson test -C _build --print-errorlogs
+      - name: Check translations
+        run: |
+          for po in po/*.po; do msgfmt --check --output-file=/dev/null "$po"; done
+
+  flatpak:
+    name: Flatpak (${{ matrix.arch }})
+    runs-on: ${{ matrix.runner }}
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-51
+      options: --privileged
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x86_64
+            runner: ubuntu-24.04
+          - arch: aarch64
+            runner: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v5
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: mirage-devel-${{ matrix.arch }}.flatpak
+          manifest-path: build-aux/tech.vitainside.mirage.Devel.json
+          cache-key: flatpak-builder-${{ matrix.arch }}-${{ hashFiles('build-aux/modules/*.json') }}
+          arch: ${{ matrix.arch }}
