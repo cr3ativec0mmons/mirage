@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/tech/vitainside/mirage">
+    <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/device-row.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/pairing-dialog.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/preferences-dialog.ui</file>
+    <file compressed="true">style.css</file>
+    <file compressed="true" preprocess="xml-stripblanks">icons/scalable/actions/mirage-usb-symbolic.svg</file>
+  </gresource>
+</gresources>
