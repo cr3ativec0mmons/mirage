@@ -45,6 +45,9 @@ jobs:
     container:
       image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-51
       options: --privileged
+      # Mounted so unused runner toolchains can be removed to free disk space
+      volumes:
+        - /:/host
     strategy:
       fail-fast: false
       matrix:
@@ -54,12 +57,19 @@ jobs:
           - arch: aarch64
             runner: ubuntu-24.04-arm
     steps:
+      - name: Free disk space
+        run: |
+          df -h /
+          rm -rf /host/usr/share/dotnet /host/usr/local/lib/android /host/opt/ghc \
+            /host/usr/local/.ghcup /host/opt/hostedtoolcache /host/usr/share/swift \
+            /host/usr/local/share/powershell /host/usr/local/share/chromium
+          df -h /
       - uses: actions/checkout@v5
       - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: mirage-devel-${{ matrix.arch }}.flatpak
           manifest-path: build-aux/tech.vitainside.mirage.Devel.json
-          cache: false
+          cache-key: flatpak-builder-${{ hashFiles('build-aux/modules/*.json') }}
           build-dir: /tmp/flatpak_app
           repo-dir: /tmp/flatpak_repo
           state-dir: /tmp/flatpak_builder

@@ -1,6 +1,9 @@
 {
     "name": "googletest",
     "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true
+    },
     "config-opts": [
         "-DCMAKE_BUILD_TYPE=Release",
         "-DBUILD_GMOCK=OFF"
