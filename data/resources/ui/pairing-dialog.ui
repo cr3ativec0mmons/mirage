@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="MiragePairingDialog" parent="AdwDialog">
+    <property name="title" translatable="yes">Pair Device</property>
+    <property name="content-width">420</property>
+    <property name="content-height">640</property>
+    <property name="child">
+      <object class="AdwToastOverlay" id="toast_overlay">
+        <property name="child">
+          <object class="AdwNavigationView" id="navigation_view">
+            <child>
+              <object class="AdwNavigationPage">
+                <property name="title" translatable="yes">Pair Device</property>
+                <property name="tag">methods</property>
+                <property name="child">
+                  <object class="AdwToolbarView">
+                    <child type="top">
+                      <object class="AdwHeaderBar"/>
+                    </child>
+                    <child type="top">
+                      <object class="AdwToggleGroup" id="method_toggle">
+                        <property name="halign">center</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>
+                        <property name="margin-bottom">6</property>
+                        <child>
+                          <object class="AdwToggle">
+                            <property name="name">qr</property>
+                            <property name="label" translatable="yes">_QR Code</property>
+                            <property name="use-underline">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwToggle">
+                            <property name="name">code</property>
+                            <property name="label" translatable="yes">Pairing _Code</property>
+                            <property name="use-underline">True</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <property name="content">
+                      <object class="AdwViewStack" id="method_stack">
+                        <property name="visible-child-name" bind-source="method_toggle" bind-property="active-name" bind-flags="sync-create|bidirectional"/>
+                        <child>
+                          <object class="AdwViewStackPage">
+                            <property name="name">qr</property>
+                            <property name="child">
+                              <object class="GtkScrolledWindow">
+                                <property name="hscrollbar-policy">never</property>
+                                <property name="propagate-natural-height">True</property>
+                                <property name="child">
+                                  <object class="AdwClamp">
+                                    <property name="maximum-size">360</property>
+                                    <property name="child">
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">18</property>
+                                        <property name="valign">center</property>
+                                        <property name="margin-top">12</property>
+                                        <property name="margin-bottom">24</property>
+                                        <property name="margin-start">12</property>
+                                        <property name="margin-end">12</property>
+                                        <child>
+                                          <object class="GtkPicture" id="qr_picture">
+                                            <property name="halign">center</property>
+                                            <property name="width-request">224</property>
+                                            <property name="height-request">224</property>
+                                            <property name="can-shrink">False</property>
+                                            <property name="content-fit">contain</property>
+                                            <property name="alternative-text" translatable="yes">QR code for pairing</property>
+                                            <style>
+                                              <class name="qr-code"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel">
+                                            <property name="label" translatable="yes">On your device, open &lt;b&gt;Developer options&lt;/b&gt;, then &lt;b&gt;Wireless debugging&lt;/b&gt;, tap &lt;b&gt;Pair device with QR code&lt;/b&gt; and scan this code.</property>
+                                            <property name="use-markup">True</property>
+                                            <property name="wrap">True</property>
+                                            <property name="justify">center</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkStack" id="qr_status_stack">
+                                            <property name="transition-type">crossfade</property>
+                                            <property name="vhomogeneous">False</property>
+                                            <child>
+                                              <object class="GtkStackPage">
+                                                <property name="name">waiting</property>
+                                                <property name="child">
+                                                  <object class="GtkBox">
+                                                    <property name="spacing">12</property>
+                                                    <property name="halign">center</property>
+                                                    <child>
+                                                      <object class="AdwSpinner"/>
+                                                    </child>
+                                                    <child>
+                                                      <object class="GtkLabel" id="qr_status_label">
+                                                        <property name="label" translatable="yes">Waiting for the device…</property>
+                                                        <property name="wrap">True</property>
+                                                        <style>
+                                                          <class name="dim-label"/>
+                                                        </style>
+                                                      </object>
+                                                    </child>
+                                                  </object>
+                                                </property>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkStackPage">
+                                                <property name="name">error</property>
+                                                <property name="child">
+                                                  <object class="GtkBox">
+                                                    <property name="orientation">vertical</property>
+                                                    <property name="spacing">12</property>
+                                                    <child>
+                                                      <object class="GtkLabel" id="qr_error_label">
+                                                        <property name="wrap">True</property>
+                                                        <property name="justify">center</property>
+                                                        <style>
+                                                          <class name="error"/>
+                                                        </style>
+                                                      </object>
+                                                    </child>
+                                                    <child>
+                                                      <object class="GtkButton">
+                                                        <property name="label" translatable="yes">_Try Again</property>
+                                                        <property name="use-underline">True</property>
+                                                        <property name="halign">center</property>
+                                                        <property name="action-name">pairing.restart-qr</property>
+                                                        <style>
+                                                          <class name="pill"/>
+                                                        </style>
+                                                      </object>
+                                                    </child>
+                                                  </object>
+                                                </property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel">
+                                            <property name="label" translatable="yes">The computer and the device must be connected to the same network.</property>
+                                            <property name="wrap">True</property>
+                                            <property name="justify">center</property>
+                                            <style>
+                                              <class name="caption"/>
+                                              <class name="dim-label"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </property>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwViewStackPage">
+                            <property name="name">code</property>
+                            <property name="child">
+                              <object class="AdwPreferencesPage">
+                                <child>
+                                  <object class="AdwPreferencesGroup">
+                                    <property name="title" translatable="yes">Available Devices</property>
+                                    <property name="description" translatable="yes">On your device, open Developer options › Wireless debugging and tap Pair device with pairing code.</property>
+                                    <property name="header-suffix">
+                                      <object class="AdwSpinner">
+                                        <property name="tooltip-text" translatable="yes">Searching for Devices</property>
+                                      </object>
+                                    </property>
+                                    <child>
+                                      <object class="GtkListBox" id="service_list">
+                                        <property name="selection-mode">none</property>
+                                        <style>
+                                          <class name="boxed-list"/>
+                                        </style>
+                                        <child type="placeholder">
+                                          <object class="GtkLabel">
+                                            <property name="label" translatable="yes">No devices ready to pair</property>
+                                            <property name="wrap">True</property>
+                                            <property name="margin-top">18</property>
+                                            <property name="margin-bottom">18</property>
+                                            <property name="margin-start">12</property>
+                                            <property name="margin-end">12</property>
+                                            <style>
+                                              <class name="dim-label"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwPreferencesGroup">
+                                    <child>
+                                      <object class="AdwButtonRow">
+                                        <property name="title" translatable="yes">_Enter Address Manually</property>
+                                        <property name="use-underline">True</property>
+                                        <property name="end-icon-name">go-next-symbolic</property>
+                                        <property name="action-name">pairing.enter-manually</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwNavigationPage">
+                <property name="title" translatable="yes">Enter Pairing Code</property>
+                <property name="tag">code-entry</property>
+                <property name="child">
+                  <object class="AdwToolbarView">
+                    <child type="top">
+                      <object class="AdwHeaderBar"/>
+                    </child>
+                    <property name="content">
+                      <object class="AdwPreferencesPage">
+                        <child>
+                          <object class="AdwPreferencesGroup">
+                            <property name="description" translatable="yes">Enter the address and the six-digit code shown on your device.</property>
+                            <child>
+                              <object class="AdwEntryRow" id="address_row">
+                                <property name="title" translatable="yes">IP Address &amp; Port</property>
+                                <property name="input-purpose">free-form</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwEntryRow" id="code_row">
+                                <property name="title" translatable="yes">Pairing Code</property>
+                                <property name="input-purpose">digits</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwPreferencesGroup">
+                            <child>
+                              <object class="AdwButtonRow" id="pair_button">
+                                <property name="title" translatable="yes">_Pair</property>
+                                <property name="use-underline">True</property>
+                                <property name="action-name">pairing.pair-with-code</property>
+                                <style>
+                                  <class name="suggested-action"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
