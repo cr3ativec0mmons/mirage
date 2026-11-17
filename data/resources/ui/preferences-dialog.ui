@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="MiragePreferencesDialog" parent="AdwPreferencesDialog">
+    <property name="search-enabled">True</property>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">Mirroring</property>
+        <property name="icon-name">video-display-symbolic</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Video</property>
+            <child>
+              <object class="AdwComboRow" id="video_codec_row">
+                <property name="title" translatable="yes">_Codec</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="max_size_row">
+                <property name="title" translatable="yes">Maximum _Resolution</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="max_fps_row">
+                <property name="title" translatable="yes">Maximum _Frame Rate</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSpinRow" id="bit_rate_row">
+                <property name="title" translatable="yes">_Bit Rate</property>
+                <property name="subtitle" translatable="yes">Megabits per second</property>
+                <property name="use-underline">True</property>
+                <property name="numeric">True</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">1</property>
+                    <property name="upper">200</property>
+                    <property name="step-increment">1</property>
+                    <property name="page-increment">10</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="hardware_decoding_row">
+                <property name="title" translatable="yes">_Hardware Decoding</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Display</property>
+            <child>
+              <object class="AdwExpanderRow" id="new_display_row">
+                <property name="title" translatable="yes">_New Display</property>
+                <property name="subtitle" translatable="yes">Show a separate virtual display instead of the screen of the device. Requires Android 10 or later.</property>
+                <property name="use-underline">True</property>
+                <property name="show-enable-switch">True</property>
+                <child>
+                  <object class="AdwComboRow" id="new_display_size_row">
+                    <property name="title" translatable="yes">Resolution</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="new_display_dpi_row">
+                    <property name="title" translatable="yes">Pixel Density</property>
+                    <property name="subtitle" translatable="yes">Dots per inch</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">0</property>
+                        <property name="upper">1000</property>
+                        <property name="step-increment">20</property>
+                        <property name="page-increment">100</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Device</property>
+            <child>
+              <object class="AdwSwitchRow" id="turn_screen_off_row">
+                <property name="title" translatable="yes">_Turn Screen Off</property>
+                <property name="subtitle" translatable="yes">Keep mirroring with the screen of the device turned off</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSwitchRow" id="stay_awake_row">
+                <property name="title" translatable="yes">_Stay Awake</property>
+                <property name="subtitle" translatable="yes">Prevent the device from sleeping while it is plugged in</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">Input</property>
+        <property name="icon-name">input-keyboard-symbolic</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Input Devices</property>
+            <property name="description" translatable="yes">Hardware emulation makes the device see a real keyboard, mouse or gamepad. With an emulated keyboard, the layout must be set on the device. Emulation over USB only works with a cable.</property>
+            <child>
+              <object class="AdwComboRow" id="keyboard_row">
+                <property name="title" translatable="yes">_Keyboard</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="mouse_row">
+                <property name="title" translatable="yes">_Mouse</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="gamepad_row">
+                <property name="title" translatable="yes">_Gamepad</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">Audio</property>
+        <property name="icon-name">audio-speakers-symbolic</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <child>
+              <object class="AdwSwitchRow" id="audio_row">
+                <property name="title" translatable="yes">_Forward Audio</property>
+                <property name="subtitle" translatable="yes">Play the sound of the device on this computer. Requires Android 11 or later.</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="audio_source_row">
+                <property name="title" translatable="yes">_Source</property>
+                <property name="use-underline">True</property>
+                <property name="sensitive" bind-source="audio_row" bind-property="active" bind-flags="sync-create"/>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="audio_codec_row">
+                <property name="title" translatable="yes">_Codec</property>
+                <property name="use-underline">True</property>
+                <property name="sensitive" bind-source="audio_row" bind-property="active" bind-flags="sync-create"/>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">Recording</property>
+        <property name="icon-name">media-record-symbolic</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <child>
+              <object class="AdwComboRow" id="record_format_row">
+                <property name="title" translatable="yes">File _Format</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow" id="recordings_folder_row">
+                <property name="title" translatable="yes">Save Location</property>
+                <property name="subtitle-selectable">True</property>
+                <style>
+                  <class name="property"/>
+                </style>
+                <child type="suffix">
+                  <object class="GtkButton">
+                    <property name="icon-name">folder-open-symbolic</property>
+                    <property name="tooltip-text" translatable="yes">Open Folder</property>
+                    <property name="valign">center</property>
+                    <property name="action-name">preferences.open-recordings-folder</property>
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
