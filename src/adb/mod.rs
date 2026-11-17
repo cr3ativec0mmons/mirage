@@ -2,6 +2,7 @@
 
 mod client;
 mod devices;
+pub mod discovery;
 mod tracker;
 
 pub use client::{AdbClient, Error};
