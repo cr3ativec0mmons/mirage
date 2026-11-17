@@ -1,0 +1,24 @@
+{
+    "name": "googletest",
+    "buildsystem": "cmake-ninja",
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DBUILD_GMOCK=OFF"
+    ],
+    "cleanup": [
+        "*"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/google/googletest/releases/download/v1.18.0/googletest-1.18.0.tar.gz",
+            "sha256": "6e3191c1455468b3fc35a417fb565c1c5071aee1b7e7f85e30cf48a98d37d8b5",
+            "x-checker-data": {
+                "type": "json",
+                "url": "https://api.github.com/repos/google/googletest/releases/latest",
+                "version-query": ".tag_name | sub(\"^v\"; \"\")",
+                "url-query": "\"https://github.com/google/googletest/releases/download/v\" + $version + \"/googletest-\" + $version + \".tar.gz\""
+            }
+        }
+    ]
+}

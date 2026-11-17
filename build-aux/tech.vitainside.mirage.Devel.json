@@ -1,0 +1,66 @@
+{
+    "id": "tech.vitainside.mirage.Devel",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "51",
+    "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable"
+    ],
+    "command": "mirage",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--socket=pulseaudio",
+        "--share=network",
+        "--device=usb",
+        "--device=input",
+        "--filesystem=~/.android:create",
+        "--filesystem=xdg-videos/Mirage:create",
+        "--env=RUST_BACKTRACE=1",
+        "--env=MIRAGE_LOG=mirage=debug"
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "build-args": [
+            "--share=network"
+        ],
+        "env": {
+            "CARGO_HOME": "/run/build/mirage/cargo",
+            "RUST_BACKTRACE": "1"
+        }
+    },
+    "cleanup": [
+        "/include",
+        "/lib/cmake",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.a",
+        "*.la"
+    ],
+    "modules": [
+        "modules/abseil-cpp.json",
+        "modules/protobuf.json",
+        "modules/googletest.json",
+        "modules/android-tools.json",
+        "modules/scrcpy.json",
+        {
+            "name": "mirage",
+            "buildsystem": "meson",
+            "run-tests": true,
+            "config-opts": [
+                "-Dprofile=development"
+            ],
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "../"
+                }
+            ]
+        }
+    ]
+}
