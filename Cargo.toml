@@ -19,6 +19,9 @@ qrcode = { version = "0.14.1", default-features = false }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
+[build-dependencies]
+glib-build-tools = "0.22"
+
 [profile.release]
 lto = "thin"
 codegen-units = 1

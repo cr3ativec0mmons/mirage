@@ -10,7 +10,8 @@ window** (Mirage never embeds the video). Flatpak is the primary target.
   (`v1_8`); glib/gio come from the `gtk::` re-exports. Also `mdns-sd`, `qrcode`,
   `gettext-rs`, `getrandom`, `async-channel`, `tracing`.
 - Meson drives Cargo (GNOME Rust template). Runtime: GNOME 51 (GTK 4.24, libadwaita 1.10).
-- UI is GtkBuilder `.ui` XML (not Blueprint), compiled into a gresource.
+- UI is GtkBuilder `.ui` XML (not Blueprint), compiled by `build.rs` into a gresource
+  embedded in the binary.
 - Settings: GSettings (`data/tech.vitainside.mirage.gschema.xml.in`). Inside Flatpak
   they land in `$XDG_CONFIG_HOME`.
 
@@ -18,6 +19,7 @@ window** (Mirage never embeds the video). Flatpak is the primary target.
 
 ```
 src/main.rs              gettext setup, loads resources, runs the app
+build.rs                 embeds the gresource; compiles the Devel schema for plain cargo
 src/config.rs            APP_ID/PROFILE/VERSION/paths from MIRAGE_* env (set by Meson)
 src/application.rs       AdwApplication: app.quit/preferences/about, accels
 src/device.rs            Device GObject (state, wireless, activity)
@@ -45,6 +47,7 @@ cargo fmt --check && cargo clippy --all-targets -- -D warnings && cargo test   #
 meson setup _build -Dprofile=development && meson compile -C _build
 meson test -C _build                 # desktop/metainfo/gschema validation + cargo test
 meson devenv -C _build ./src/mirage  # run from the build tree
+cargo run                            # also works: Devel profile, no translations
 meson compile -C _build mirage-pot && meson compile -C _build mirage-update-po
 flatpak-builder --user --install --force-clean _flatpak build-aux/tech.vitainside.mirage.Devel.json
 ```

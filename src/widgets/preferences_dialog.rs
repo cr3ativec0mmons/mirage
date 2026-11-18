@@ -6,7 +6,7 @@ use gettextrs::{gettext, pgettext};
 use glib::clone;
 use gtk::{gio, glib};
 
-use crate::config::APP_ID;
+use crate::config;
 use crate::i18n::gettext_f;
 use crate::recordings;
 
@@ -92,7 +92,7 @@ mod imp {
     impl ObjectImpl for MiragePreferencesDialog {
         fn constructed(&self) {
             self.parent_constructed();
-            let settings = gio::Settings::new(APP_ID);
+            let settings = config::settings();
             self.obj().bind_settings(&settings);
             self.settings.set(settings).unwrap();
         }

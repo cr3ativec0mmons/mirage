@@ -17,7 +17,6 @@ cargo_env = [
   'MIRAGE_VERSION=' + version + version_suffix,
   'MIRAGE_GETTEXT_PACKAGE=' + gettext_package,
   'MIRAGE_LOCALEDIR=' + localedir,
-  'MIRAGE_PKGDATADIR=' + pkgdatadir,
 ]
 
 cargo_build = custom_target(
