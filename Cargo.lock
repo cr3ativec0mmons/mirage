@@ -372,6 +372,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "glib-build-tools"
+version = "0.22.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f9871f38b67853c358b8190f77b9f878eb27d933a950f1045b244c4559a9f5f0"
+
+[[package]]
 name = "glib-macros"
 version = "0.22.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -672,11 +678,12 @@ dependencies = [
 
 [[package]]
 name = "mirage"
-version = "0.1.0"
+version = "0.0.1"
 dependencies = [
  "async-channel",
  "getrandom",
  "gettext-rs",
+ "glib-build-tools",
  "gtk4",
  "libadwaita",
  "mdns-sd",

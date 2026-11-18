@@ -14,7 +14,7 @@ use super::{MirageDeviceRow, MiragePairingDialog};
 use crate::adb::discovery::{self, Discovery, Service};
 use crate::adb::{AdbClient, TrackerEvent, TrackerHandle, spawn_tracker};
 use crate::application::MirageApplication;
-use crate::config::{APP_ID, is_devel};
+use crate::config::{self, is_devel};
 use crate::device::{Activity, Device};
 use crate::i18n::{gettext_f, ngettext_f};
 use crate::recordings;
@@ -116,7 +116,7 @@ mod imp {
                 obj.add_css_class("devel");
             }
 
-            let settings = gio::Settings::new(APP_ID);
+            let settings = config::settings();
             obj.set_default_size(settings.int("window-width"), settings.int("window-height"));
             if settings.boolean("is-maximized") {
                 obj.maximize();

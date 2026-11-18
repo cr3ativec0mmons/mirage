@@ -16,6 +16,9 @@ pub struct Options {
     pub video_bit_rate: u32,
     pub hardware_decoding: String,
     pub new_display: Option<NewDisplay>,
+    pub window_aspect_ratio_lock: bool,
+    /// `letterbox`, `stretched` or `unscaled`.
+    pub render_fit: String,
     pub turn_screen_off: bool,
     pub stay_awake: bool,
     pub keyboard: String,
@@ -30,6 +33,8 @@ pub struct NewDisplay {
     pub size: String,
     /// 0 to match the main display.
     pub dpi: u32,
+    /// Resize the display to match the window.
+    pub flex: bool,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -54,6 +59,8 @@ impl Default for Options {
             video_bit_rate: 8,
             hardware_decoding: "auto".to_owned(),
             new_display: None,
+            window_aspect_ratio_lock: true,
+            render_fit: "letterbox".to_owned(),
             turn_screen_off: false,
             stay_awake: false,
             keyboard: "sdk".to_owned(),
@@ -79,7 +86,10 @@ impl Options {
             new_display: settings.boolean("new-display").then(|| NewDisplay {
                 size: string("new-display-size"),
                 dpi: settings.uint("new-display-dpi"),
+                flex: settings.boolean("flex-display"),
             }),
+            window_aspect_ratio_lock: settings.boolean("window-aspect-ratio-lock"),
+            render_fit: string("render-fit"),
             turn_screen_off: settings.boolean("turn-screen-off"),
             stay_awake: settings.boolean("stay-awake"),
             keyboard: string("keyboard"),
@@ -124,6 +134,22 @@ impl Options {
                 }
             }
             args.push(arg.into());
+        }
+
+        // A flex display always matches the window, so scrcpy ignores these.
+        if self
+            .new_display
+            .as_ref()
+            .is_some_and(|display| display.flex)
+        {
+            args.push("--flex-display".into());
+        } else {
+            if !self.window_aspect_ratio_lock {
+                args.push("--no-window-aspect-ratio-lock".into());
+            }
+            if self.render_fit != "letterbox" {
+                args.push(format!("--render-fit={}", self.render_fit).into());
+            }
         }
 
         if self.turn_screen_off {
@@ -217,6 +243,7 @@ mod tests {
                 new_display: Some(NewDisplay {
                     size: size.to_owned(),
                     dpi,
+                    flex: false,
                 }),
                 ..Options::default()
             };
@@ -229,6 +256,40 @@ mod tests {
         assert_eq!(new_display("1920x1080", 0), "--new-display=1920x1080");
         assert_eq!(new_display("", 240), "--new-display=/240");
         assert_eq!(new_display("1920x1080", 420), "--new-display=1920x1080/420");
+    }
+
+    #[test]
+    fn free_window() {
+        let options = Options {
+            window_aspect_ratio_lock: false,
+            render_fit: "stretched".to_owned(),
+            ..Options::default()
+        };
+        let args = args(&options, None);
+        assert!(args.contains(&"--no-window-aspect-ratio-lock".to_owned()));
+        assert!(args.contains(&"--render-fit=stretched".to_owned()));
+    }
+
+    #[test]
+    fn flex_display_overrides_window_options() {
+        let options = Options {
+            new_display: Some(NewDisplay {
+                size: String::new(),
+                dpi: 0,
+                flex: true,
+            }),
+            window_aspect_ratio_lock: false,
+            render_fit: "stretched".to_owned(),
+            ..Options::default()
+        };
+        let args = args(&options, None);
+        assert!(args.contains(&"--flex-display".to_owned()));
+        assert!(
+            !args
+                .iter()
+                .any(|arg| arg == "--no-window-aspect-ratio-lock")
+        );
+        assert!(!args.iter().any(|arg| arg.starts_with("--render-fit")));
     }
 
     #[test]

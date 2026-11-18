@@ -7,14 +7,12 @@ mod recordings;
 mod scrcpy;
 mod widgets;
 
-use std::path::PathBuf;
-
 use gettextrs::{LocaleCategory, gettext};
 use gtk::prelude::*;
 use gtk::{gio, glib};
 
 use self::application::MirageApplication;
-use self::config::{GETTEXT_PACKAGE, LOCALEDIR, PKGDATADIR};
+use self::config::{GETTEXT_PACKAGE, LOCALEDIR};
 
 fn main() -> glib::ExitCode {
     tracing_subscriber::fmt()
@@ -33,11 +31,7 @@ fn main() -> glib::ExitCode {
         .expect("Unable to set the text domain encoding");
     gettextrs::textdomain(GETTEXT_PACKAGE).expect("Unable to switch to the text domain");
 
-    let resources_path = std::env::var_os("MIRAGE_RESOURCES")
-        .map(PathBuf::from)
-        .unwrap_or_else(|| PathBuf::from(PKGDATADIR).join("resources.gresource"));
-    let resources = gio::Resource::load(&resources_path).expect("Could not load resources");
-    gio::resources_register(&resources);
+    gio::resources_register_include!("resources.gresource").expect("Could not load resources");
 
     glib::set_application_name(&gettext("Mirage"));
 

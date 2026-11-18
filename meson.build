@@ -1,7 +1,7 @@
 project(
   'mirage',
   'rust',
-  version: '0.1.0',
+  version: '0.0.1',
   license: 'GPL-3.0-or-later',
   meson_version: '>= 1.4.0',
 )
@@ -29,7 +29,6 @@ prefix = get_option('prefix')
 bindir = prefix / get_option('bindir')
 localedir = prefix / get_option('localedir')
 datadir = prefix / get_option('datadir')
-pkgdatadir = datadir / meson.project_name()
 iconsdir = datadir / 'icons'
 podir = meson.project_source_root() / 'po'
 gettext_package = meson.project_name()
