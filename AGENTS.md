@@ -83,12 +83,18 @@ gh pr create --base main --head dev --fill   # GitHub CLI: PRs, CI (gh pr checks
 
 ## Branches
 
+- Topic branches (`feat/...`, `fix/...`, `docs/...`, ...) branch off `dev`; each one
+  becomes a PR into `dev`.
 - `dev`: all new features and fixes land here first, until the maintainer has tested them.
+  It only accepts PRs (no direct pushes, no force pushes) and every commit must be signed.
 - `main`: receives `dev` once those changes are confirmed stable.
 - `release/vX.Y.Z`: when a milestone is reached, `main` is merged into the branch for the
   version currently pending release.
-- Never commit straight to `main` or a `release/*` branch. Changes reach them through PRs
-  (`gh pr create`), merged by the maintainer or on their explicit request.
+- Never commit straight to `dev`, `main` or a `release/*` branch. Changes reach them
+  through PRs (`gh pr create`), merged by the maintainer or on their explicit request.
+- Commits are signed with the maintainer's SSH key (`git commit -S`). Agents cannot sign:
+  they commit on a topic branch, and the maintainer signs the commits (for example
+  `git rebase --exec 'git commit --amend --no-edit -S' dev`) and pushes the branch.
 
 ## Releases
 
@@ -97,7 +103,7 @@ the version, builds the release manifest for x86_64 and aarch64 and creates the 
 release with both `.flatpak` bundles and generated notes. The workflow file must exist at
 the tagged commit.
 
-1. On `dev`, bump the version in `meson.build` and `Cargo.toml` (then `cargo update -p
+1. On a topic branch off `dev` (PR into `dev`), bump the version in `meson.build` and `Cargo.toml` (then `cargo update -p
    mirage --offline` for `Cargo.lock`), add a `<release version="X.Y.Z" date="YYYY-MM-DD">`
    entry at the top of `<releases>` in the metainfo, and run
    `build-aux/update-cargo-sources.sh` if `Cargo.lock` dependencies changed. Commit as
@@ -105,8 +111,9 @@ the tagged commit.
 2. PR `dev` → `main`; once CI passes and the maintainer approves, merge.
 3. Create `release/vX.Y.Z` from `main` if it does not exist
    (`git push origin main:refs/heads/release/vX.Y.Z`), otherwise PR `main` → it and merge.
-4. Tag the tip of the release branch and push the tag:
-   `git tag -a vX.Y.Z -m "Mirage X.Y.Z" origin/release/vX.Y.Z && git push origin vX.Y.Z`.
+4. The maintainer signs the tag on the tip of the release branch and pushes it:
+   `git tag -s vX.Y.Z -m "Mirage X.Y.Z" origin/release/vX.Y.Z && git push origin vX.Y.Z`.
+   Release tags must be signed; agents never create or push them.
 5. Follow it with `gh run watch`; the release appears under `gh release view vX.Y.Z`.
    A failed run: fix on `dev`, bring it through again, delete and re-push the tag
    (`git push --delete origin vX.Y.Z`) only if no release was published.
