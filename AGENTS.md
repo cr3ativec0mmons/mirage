@@ -38,6 +38,7 @@ data/icons/hicolor/      app icons (regular, .Devel, symbolic)
 po/                      POTFILES.in, LINGUAS, mirage.pot, es.po
 build-aux/               Flatpak manifests (+ modules/), dist-vendor.sh, update-cargo-sources.sh
 .github/workflows/ci.yml Fedora lint/test + Flatpak x86_64/aarch64
+.github/workflows/release.yml  on `v*` tags: release Flatpak bundles -> GitHub release
 ```
 
 ## Commands
@@ -50,6 +51,7 @@ meson devenv -C _build ./src/mirage  # run from the build tree
 cargo run                            # also works: Devel profile, no translations
 meson compile -C _build mirage-pot && meson compile -C _build mirage-update-po
 flatpak-builder --user --install --force-clean _flatpak build-aux/tech.vitainside.mirage.Devel.json
+gh pr create --base main --head dev --fill   # GitHub CLI: PRs, CI (gh pr checks), releases
 ```
 
 ## Conventions and gotchas
@@ -85,8 +87,29 @@ flatpak-builder --user --install --force-clean _flatpak build-aux/tech.vitainsid
 - `main`: receives `dev` once those changes are confirmed stable.
 - `release/vX.Y.Z`: when a milestone is reached, `main` is merged into the branch for the
   version currently pending release.
-- Never commit straight to `main` or a `release/*` branch. Merges into them are done by
-  the maintainer.
+- Never commit straight to `main` or a `release/*` branch. Changes reach them through PRs
+  (`gh pr create`), merged by the maintainer or on their explicit request.
+
+## Releases
+
+A milestone `X.Y.Z` is published by pushing the tag `vX.Y.Z`; `release.yml` then checks
+the version, builds the release manifest for x86_64 and aarch64 and creates the GitHub
+release with both `.flatpak` bundles and generated notes. The workflow file must exist at
+the tagged commit.
+
+1. On `dev`, bump the version in `meson.build` and `Cargo.toml` (then `cargo update -p
+   mirage --offline` for `Cargo.lock`), add a `<release version="X.Y.Z" date="YYYY-MM-DD">`
+   entry at the top of `<releases>` in the metainfo, and run
+   `build-aux/update-cargo-sources.sh` if `Cargo.lock` dependencies changed. Commit as
+   `chore(release): prepare vX.Y.Z`.
+2. PR `dev` → `main`; once CI passes and the maintainer approves, merge.
+3. Create `release/vX.Y.Z` from `main` if it does not exist
+   (`git push origin main:refs/heads/release/vX.Y.Z`), otherwise PR `main` → it and merge.
+4. Tag the tip of the release branch and push the tag:
+   `git tag -a vX.Y.Z -m "Mirage X.Y.Z" origin/release/vX.Y.Z && git push origin vX.Y.Z`.
+5. Follow it with `gh run watch`; the release appears under `gh release view vX.Y.Z`.
+   A failed run: fix on `dev`, bring it through again, delete and re-push the tag
+   (`git push --delete origin vX.Y.Z`) only if no release was published.
 
 ## Commits
 
