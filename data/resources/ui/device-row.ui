@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="MirageDeviceRow" parent="AdwActionRow">
+    <property name="activatable-widget">mirror_button</property>
+    <property name="use-markup">False</property>
+    <property name="title-lines">1</property>
+    <property name="subtitle-lines">2</property>
+    <style>
+      <class name="device-row"/>
+    </style>
+    <child type="prefix">
+      <object class="GtkImage" id="connection_icon">
+        <property name="icon-name">phone-symbolic</property>
+        <property name="accessible-role">presentation</property>
+      </object>
+    </child>
+    <child type="suffix">
+      <object class="GtkBox">
+        <property name="spacing">6</property>
+        <property name="valign">center</property>
+        <child>
+          <object class="GtkButton" id="record_button">
+            <property name="icon-name">media-record-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Record Screen</property>
+            <property name="valign">center</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="mirror_button">
+            <property name="icon-name">screen-shared-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Mirror Screen</property>
+            <property name="valign">center</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -1,0 +1,10 @@
+/* The QR code keeps a light background in dark mode so cameras can read it */
+.qr-code {
+  background-color: white;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.device-row .recording {
+  color: var(--destructive-color);
+}

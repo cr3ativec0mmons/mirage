@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="@gettext-package@">
+  <schema id="@app-id@" path="@gschema-path@">
+    <!-- Window state -->
+    <key name="window-width" type="i">
+      <default>560</default>
+      <summary>Window width</summary>
+    </key>
+    <key name="window-height" type="i">
+      <default>620</default>
+      <summary>Window height</summary>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+      <summary>Window maximized state</summary>
+    </key>
+
+    <!-- Video -->
+    <key name="video-codec" type="s">
+      <choices>
+        <choice value="h264"/>
+        <choice value="h265"/>
+        <choice value="av1"/>
+        <choice value="vp8"/>
+        <choice value="vp9"/>
+      </choices>
+      <default>"h264"</default>
+      <summary>Video codec</summary>
+      <description>The codec used by the device to encode the screen</description>
+    </key>
+    <key name="max-size" type="u">
+      <default>0</default>
+      <summary>Maximum resolution</summary>
+      <description>Limit the largest dimension of the video, in pixels. 0 keeps the device resolution.</description>
+    </key>
+    <key name="max-fps" type="u">
+      <default>0</default>
+      <summary>Maximum frame rate</summary>
+      <description>Limit the frame rate of the screen capture. 0 means no limit.</description>
+    </key>
+    <key name="video-bit-rate" type="u">
+      <range min="1" max="200"/>
+      <default>8</default>
+      <summary>Video bit rate</summary>
+      <description>The video bit rate, in megabits per second</description>
+    </key>
+    <key name="hardware-decoding" type="s">
+      <choices>
+        <choice value="auto"/>
+        <choice value="vaapi"/>
+        <choice value="disabled"/>
+      </choices>
+      <default>"auto"</default>
+      <summary>Hardware decoding</summary>
+      <description>Decode the video with the GPU of the computer</description>
+    </key>
+
+    <!-- Display -->
+    <key name="new-display" type="b">
+      <default>false</default>
+      <summary>Use a new virtual display</summary>
+      <description>Create a separate display on the device instead of mirroring the main one (Android 10 or later)</description>
+    </key>
+    <key name="new-display-size" type="s">
+      <default>""</default>
+      <summary>Virtual display resolution</summary>
+      <description>The resolution of the virtual display as WIDTHxHEIGHT, or empty to match the main display</description>
+    </key>
+    <key name="new-display-dpi" type="u">
+      <range min="0" max="1000"/>
+      <default>0</default>
+      <summary>Virtual display density</summary>
+      <description>The pixel density of the virtual display in dots per inch, or 0 to match the main display</description>
+    </key>
+    <key name="turn-screen-off" type="b">
+      <default>false</default>
+      <summary>Turn the device screen off</summary>
+    </key>
+    <key name="stay-awake" type="b">
+      <default>false</default>
+      <summary>Keep the device awake while it is plugged in</summary>
+    </key>
+
+    <!-- Input -->
+    <key name="keyboard" type="s">
+      <choices>
+        <choice value="sdk"/>
+        <choice value="uhid"/>
+        <choice value="aoa"/>
+        <choice value="disabled"/>
+      </choices>
+      <default>"sdk"</default>
+      <summary>Keyboard input mode</summary>
+    </key>
+    <key name="mouse" type="s">
+      <choices>
+        <choice value="sdk"/>
+        <choice value="uhid"/>
+        <choice value="aoa"/>
+        <choice value="disabled"/>
+      </choices>
+      <default>"sdk"</default>
+      <summary>Mouse input mode</summary>
+    </key>
+    <key name="gamepad" type="s">
+      <choices>
+        <choice value="disabled"/>
+        <choice value="uhid"/>
+        <choice value="aoa"/>
+      </choices>
+      <default>"disabled"</default>
+      <summary>Gamepad input mode</summary>
+    </key>
+
+    <!-- Audio -->
+    <key name="audio" type="b">
+      <default>true</default>
+      <summary>Forward audio</summary>
+      <description>Play the sound of the device on the computer (Android 11 or later)</description>
+    </key>
+    <key name="audio-codec" type="s">
+      <choices>
+        <choice value="opus"/>
+        <choice value="aac"/>
+        <choice value="flac"/>
+        <choice value="raw"/>
+      </choices>
+      <default>"opus"</default>
+      <summary>Audio codec</summary>
+    </key>
+    <key name="audio-source" type="s">
+      <choices>
+        <choice value="output"/>
+        <choice value="playback"/>
+        <choice value="mic"/>
+      </choices>
+      <default>"output"</default>
+      <summary>Audio source</summary>
+    </key>
+
+    <!-- Recording -->
+    <key name="record-format" type="s">
+      <choices>
+        <choice value="mp4"/>
+        <choice value="mkv"/>
+      </choices>
+      <default>"mp4"</default>
+      <summary>Recording file format</summary>
+    </key>
+  </schema>
+</schemalist>
