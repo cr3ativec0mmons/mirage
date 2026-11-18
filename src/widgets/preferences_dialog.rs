@@ -3,9 +3,10 @@ use std::sync::Arc;
 use adw::prelude::*;
 use adw::subclass::prelude::*;
 use gettextrs::{gettext, pgettext};
+use glib::clone;
 use gtk::{gio, glib};
 
-use crate::config::APP_ID;
+use crate::config;
 use crate::i18n::gettext_f;
 use crate::recordings;
 
@@ -33,6 +34,14 @@ mod imp {
         pub new_display_size_row: TemplateChild<adw::ComboRow>,
         #[template_child]
         pub new_display_dpi_row: TemplateChild<adw::SpinRow>,
+        #[template_child]
+        pub flex_display_row: TemplateChild<adw::SwitchRow>,
+        #[template_child]
+        pub window_group: TemplateChild<adw::PreferencesGroup>,
+        #[template_child]
+        pub aspect_ratio_lock_row: TemplateChild<adw::SwitchRow>,
+        #[template_child]
+        pub render_fit_row: TemplateChild<adw::ComboRow>,
         #[template_child]
         pub turn_screen_off_row: TemplateChild<adw::SwitchRow>,
         #[template_child]
@@ -83,7 +92,7 @@ mod imp {
     impl ObjectImpl for MiragePreferencesDialog {
         fn constructed(&self) {
             self.parent_constructed();
-            let settings = gio::Settings::new(APP_ID);
+            let settings = config::settings();
             self.obj().bind_settings(&settings);
             self.settings.set(settings).unwrap();
         }
@@ -187,6 +196,41 @@ impl MiragePreferencesDialog {
             .bind("new-display-dpi", &imp.new_display_dpi_row.get(), "value")
             .build();
         setup_automatic_spin_row(&imp.new_display_dpi_row);
+        settings
+            .bind("flex-display", &imp.flex_display_row.get(), "active")
+            .build();
+
+        // Window
+        settings
+            .bind(
+                "window-aspect-ratio-lock",
+                &imp.aspect_ratio_lock_row.get(),
+                "active",
+            )
+            .build();
+        bind_string_choice(
+            settings,
+            "render-fit",
+            &imp.render_fit_row,
+            vec![
+                ("letterbox", gettext("Fit")),
+                ("stretched", gettext("Stretch")),
+                ("unscaled", gettext("Original Size")),
+            ],
+        );
+        // A display that follows the window always fills it.
+        let update_window_group = clone!(
+            #[weak(rename_to = group)]
+            imp.window_group,
+            move |settings: &gio::Settings, _: &str| {
+                group.set_sensitive(
+                    !(settings.boolean("new-display") && settings.boolean("flex-display")),
+                );
+            }
+        );
+        update_window_group(settings, "");
+        settings.connect_changed(Some("new-display"), update_window_group.clone());
+        settings.connect_changed(Some("flex-display"), update_window_group);
 
         settings
             .bind("turn-screen-off", &imp.turn_screen_off_row.get(), "active")

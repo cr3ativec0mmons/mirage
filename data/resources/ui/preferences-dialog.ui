@@ -79,6 +79,31 @@
                     </property>
                   </object>
                 </child>
+                <child>
+                  <object class="AdwSwitchRow" id="flex_display_row">
+                    <property name="title" translatable="yes">Resize With Window</property>
+                    <property name="subtitle" translatable="yes">Change the resolution of the virtual display to match the window</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup" id="window_group">
+            <property name="title" translatable="yes">Window</property>
+            <child>
+              <object class="AdwSwitchRow" id="aspect_ratio_lock_row">
+                <property name="title" translatable="yes">Keep _Aspect Ratio</property>
+                <property name="subtitle" translatable="yes">Only resize the window in the proportions of the device screen</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwComboRow" id="render_fit_row">
+                <property name="title" translatable="yes">Content _Fit</property>
+                <property name="subtitle" translatable="yes">How the screen fills a window of different proportions</property>
+                <property name="use-underline">True</property>
               </object>
             </child>
           </object>

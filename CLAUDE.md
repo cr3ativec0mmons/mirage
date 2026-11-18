@@ -11,4 +11,7 @@
   (see the `headless-gui-screenshots` memory). Do not open windows on the user's desktop.
 - In this sandbox, `flatpak-builder` needs `--disable-rofiles-fuse` when the state dir is
   in the scratchpad.
-- Do not commit or push unless asked; branch off `main` first.
+- Do not commit or push unless asked. Work on `dev` (see Branches in AGENTS.md): new
+  fixes and features stay there until the user has tested them; the user merges stable
+  work into `main`, and milestones into `release/vX.Y.Z`. Never merge into `main` or
+  `release/*` yourself.
