@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mirage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-17 16:57-0300\n"
+"POT-Creation-Date: 2026-11-17 19:32-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,11 +183,11 @@ msgstr ""
 msgid "IP Address & Port"
 msgstr ""
 
-#: data/resources/ui/pairing-dialog.ui:245
+#: data/resources/ui/pairing-dialog.ui:246
 msgid "Pairing Code"
 msgstr ""
 
-#: data/resources/ui/pairing-dialog.ui:255 src/widgets/pairing_dialog.rs:357
+#: data/resources/ui/pairing-dialog.ui:256 src/widgets/pairing_dialog.rs:357
 msgid "_Pair"
 msgstr ""
 
@@ -200,7 +200,7 @@ msgid "Video"
 msgstr ""
 
 #: data/resources/ui/preferences-dialog.ui:14
-#: data/resources/ui/preferences-dialog.ui:159
+#: data/resources/ui/preferences-dialog.ui:184
 msgid "_Codec"
 msgstr ""
 
@@ -250,83 +250,111 @@ msgstr ""
 msgid "Dots per inch"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:88
-msgid "Device"
+#: data/resources/ui/preferences-dialog.ui:84
+msgid "Resize With Window"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:91
-msgid "_Turn Screen Off"
+#: data/resources/ui/preferences-dialog.ui:85
+msgid "Change the resolution of the virtual display to match the window"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:92
-msgid "Keep mirroring with the screen of the device turned off"
+#: data/resources/ui/preferences-dialog.ui:94
+msgid "Window"
+msgstr ""
+
+#: data/resources/ui/preferences-dialog.ui:97
+msgid "Keep _Aspect Ratio"
 msgstr ""
 
 #: data/resources/ui/preferences-dialog.ui:98
-msgid "_Stay Awake"
+msgid "Only resize the window in the proportions of the device screen"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:99
-msgid "Prevent the device from sleeping while it is plugged in"
+#: data/resources/ui/preferences-dialog.ui:104
+msgid "Content _Fit"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:109
-msgid "Input"
+#: data/resources/ui/preferences-dialog.ui:105
+msgid "How the screen fills a window of different proportions"
 msgstr ""
 
 #: data/resources/ui/preferences-dialog.ui:113
+msgid "Device"
+msgstr ""
+
+#: data/resources/ui/preferences-dialog.ui:116
+msgid "_Turn Screen Off"
+msgstr ""
+
+#: data/resources/ui/preferences-dialog.ui:117
+msgid "Keep mirroring with the screen of the device turned off"
+msgstr ""
+
+#: data/resources/ui/preferences-dialog.ui:123
+msgid "_Stay Awake"
+msgstr ""
+
+#: data/resources/ui/preferences-dialog.ui:124
+msgid "Prevent the device from sleeping while it is plugged in"
+msgstr ""
+
+#: data/resources/ui/preferences-dialog.ui:134
+msgid "Input"
+msgstr ""
+
+#: data/resources/ui/preferences-dialog.ui:138
 msgid "Input Devices"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:114
+#: data/resources/ui/preferences-dialog.ui:139
 msgid ""
 "Hardware emulation makes the device see a real keyboard, mouse or gamepad. "
 "With an emulated keyboard, the layout must be set on the device. Emulation "
 "over USB only works with a cable."
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:117
+#: data/resources/ui/preferences-dialog.ui:142
 msgid "_Keyboard"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:123
+#: data/resources/ui/preferences-dialog.ui:148
 msgid "_Mouse"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:129
+#: data/resources/ui/preferences-dialog.ui:154
 msgid "_Gamepad"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:139
+#: data/resources/ui/preferences-dialog.ui:164
 msgid "Audio"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:145
+#: data/resources/ui/preferences-dialog.ui:170
 msgid "_Forward Audio"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:146
+#: data/resources/ui/preferences-dialog.ui:171
 msgid ""
 "Play the sound of the device on this computer. Requires Android 11 or later."
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:152
+#: data/resources/ui/preferences-dialog.ui:177
 msgid "_Source"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:170
+#: data/resources/ui/preferences-dialog.ui:195
 msgid "Recording"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:176
+#: data/resources/ui/preferences-dialog.ui:201
 msgid "File _Format"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:182
+#: data/resources/ui/preferences-dialog.ui:207
 msgid "Save Location"
 msgstr ""
 
-#: data/resources/ui/preferences-dialog.ui:190
+#: data/resources/ui/preferences-dialog.ui:215
 msgid "Open Folder"
 msgstr ""
 
@@ -344,7 +372,7 @@ msgstr ""
 
 #: data/resources/ui/window.ui:20 data/tech.vitainside.mirage.desktop.in.in:2
 #: data/tech.vitainside.mirage.metainfo.xml.in.in:7 src/application.rs:95
-#: src/main.rs:38
+#: src/main.rs:42
 msgid "Mirage"
 msgstr ""
 
@@ -469,42 +497,70 @@ msgid ""
 msgstr ""
 
 #: data/tech.vitainside.mirage.gschema.xml.in:77
+msgid "Resize the virtual display with the window"
+msgstr ""
+
+#: data/tech.vitainside.mirage.gschema.xml.in:78
+msgid ""
+"Continuously change the resolution of the virtual display to match the size "
+"of the mirroring window"
+msgstr ""
+
+#: data/tech.vitainside.mirage.gschema.xml.in:84
+msgid "Keep the aspect ratio of the mirroring window"
+msgstr ""
+
+#: data/tech.vitainside.mirage.gschema.xml.in:85
+msgid ""
+"Only allow resizing the mirroring window in the proportions of the device "
+"screen"
+msgstr ""
+
+#: data/tech.vitainside.mirage.gschema.xml.in:94
+msgid "Content fit"
+msgstr ""
+
+#: data/tech.vitainside.mirage.gschema.xml.in:95
+msgid "How the device screen fills a mirroring window of different proportions"
+msgstr ""
+
+#: data/tech.vitainside.mirage.gschema.xml.in:100
 msgid "Turn the device screen off"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:81
+#: data/tech.vitainside.mirage.gschema.xml.in:104
 msgid "Keep the device awake while it is plugged in"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:93
+#: data/tech.vitainside.mirage.gschema.xml.in:116
 msgid "Keyboard input mode"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:103
+#: data/tech.vitainside.mirage.gschema.xml.in:126
 msgid "Mouse input mode"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:112
+#: data/tech.vitainside.mirage.gschema.xml.in:135
 msgid "Gamepad input mode"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:118
+#: data/tech.vitainside.mirage.gschema.xml.in:141
 msgid "Forward audio"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:119
+#: data/tech.vitainside.mirage.gschema.xml.in:142
 msgid "Play the sound of the device on the computer (Android 11 or later)"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:129
+#: data/tech.vitainside.mirage.gschema.xml.in:152
 msgid "Audio codec"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:138
+#: data/tech.vitainside.mirage.gschema.xml.in:161
 msgid "Audio source"
 msgstr ""
 
-#: data/tech.vitainside.mirage.gschema.xml.in:148
+#: data/tech.vitainside.mirage.gschema.xml.in:171
 msgid "Recording file format"
 msgstr ""
 
@@ -630,137 +686,149 @@ msgstr ""
 msgid "Pairing failed: {error}"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:124
+#: src/widgets/preferences_dialog.rs:133
 msgid "Original"
 msgstr ""
 
 #. Translators: The size in pixels of the longest side of the video
-#: src/widgets/preferences_dialog.rs:127
+#: src/widgets/preferences_dialog.rs:136
 #, rust-format
 msgid "{size} px"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:130
+#: src/widgets/preferences_dialog.rs:139
 msgid "Unlimited"
 msgstr ""
 
 #. Translators: A frame rate, in frames per second
-#: src/widgets/preferences_dialog.rs:133
+#: src/widgets/preferences_dialog.rs:142
 #, rust-format
 msgid "{fps} FPS"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:144
+#: src/widgets/preferences_dialog.rs:153
 msgctxt "hardware decoding"
 msgid "Automatic"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:146
+#: src/widgets/preferences_dialog.rs:155
 msgctxt "hardware decoding"
 msgid "Disabled"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:157
+#: src/widgets/preferences_dialog.rs:166
 msgid "Same as Device"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:171
+#: src/widgets/preferences_dialog.rs:180
 #, rust-format
 msgid "{width} × {height}"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:201
+#: src/widgets/preferences_dialog.rs:216
+msgid "Fit"
+msgstr ""
+
+#: src/widgets/preferences_dialog.rs:217
+msgid "Stretch"
+msgstr ""
+
+#: src/widgets/preferences_dialog.rs:218
+msgid "Original Size"
+msgstr ""
+
+#: src/widgets/preferences_dialog.rs:245
 msgid "Standard"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:202 src/widgets/preferences_dialog.rs:215
+#: src/widgets/preferences_dialog.rs:246 src/widgets/preferences_dialog.rs:259
 msgid "Hardware Emulation"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:203 src/widgets/preferences_dialog.rs:216
+#: src/widgets/preferences_dialog.rs:247 src/widgets/preferences_dialog.rs:260
 msgid "Hardware Emulation over USB"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:204 src/widgets/preferences_dialog.rs:214
+#: src/widgets/preferences_dialog.rs:248 src/widgets/preferences_dialog.rs:258
 msgctxt "input device"
 msgid "Disabled"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:229
+#: src/widgets/preferences_dialog.rs:273
 msgid "Device Output"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:230
+#: src/widgets/preferences_dialog.rs:274
 msgid "App Playback"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:231
+#: src/widgets/preferences_dialog.rs:275
 msgid "Microphone"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:242
+#: src/widgets/preferences_dialog.rs:286
 msgid "Uncompressed"
 msgstr ""
 
-#: src/widgets/preferences_dialog.rs:333 src/widgets/preferences_dialog.rs:340
+#: src/widgets/preferences_dialog.rs:377 src/widgets/preferences_dialog.rs:384
 msgctxt "pixel density"
 msgid "Automatic"
 msgstr ""
 
-#: src/widgets/window.rs:406
+#: src/widgets/window.rs:413
 msgid "Device paired"
 msgstr ""
 
-#: src/widgets/window.rs:441
+#: src/widgets/window.rs:448
 msgid "Could Not Start Recording"
 msgstr ""
 
-#: src/widgets/window.rs:470
+#: src/widgets/window.rs:477
 msgid "Could Not Start Mirroring"
 msgstr ""
 
-#: src/widgets/window.rs:492
+#: src/widgets/window.rs:499
 #, rust-format
 msgid "{device} was disconnected"
 msgstr ""
 
-#: src/widgets/window.rs:498
+#: src/widgets/window.rs:505
 #, rust-format
 msgid "Could Not Record {device}"
 msgstr ""
 
-#: src/widgets/window.rs:500
+#: src/widgets/window.rs:507
 #, rust-format
 msgid "Could Not Mirror {device}"
 msgstr ""
 
-#: src/widgets/window.rs:511
+#: src/widgets/window.rs:518
 msgid "Recording saved"
 msgstr ""
 
-#: src/widgets/window.rs:512
+#: src/widgets/window.rs:519
 msgid "_Show"
 msgstr ""
 
-#: src/widgets/window.rs:539
+#: src/widgets/window.rs:546
 msgid "_Close"
 msgstr ""
 
-#: src/widgets/window.rs:546
+#: src/widgets/window.rs:553
 msgid "Stop Mirroring?"
 msgstr ""
 
-#: src/widgets/window.rs:548
+#: src/widgets/window.rs:555
 #, rust-format
 msgid "Mirroring and recording will stop on {count} device."
 msgid_plural "Mirroring and recording will stop on {count} devices."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/widgets/window.rs:554
+#: src/widgets/window.rs:561
 msgid "_Cancel"
 msgstr ""
 
-#: src/widgets/window.rs:555
+#: src/widgets/window.rs:562
 msgid "_Stop and Close"
 msgstr ""

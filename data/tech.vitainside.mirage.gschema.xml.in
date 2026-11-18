@@ -72,6 +72,29 @@
       <summary>Virtual display density</summary>
       <description>The pixel density of the virtual display in dots per inch, or 0 to match the main display</description>
     </key>
+    <key name="flex-display" type="b">
+      <default>false</default>
+      <summary>Resize the virtual display with the window</summary>
+      <description>Continuously change the resolution of the virtual display to match the size of the mirroring window</description>
+    </key>
+
+    <!-- Window -->
+    <key name="window-aspect-ratio-lock" type="b">
+      <default>true</default>
+      <summary>Keep the aspect ratio of the mirroring window</summary>
+      <description>Only allow resizing the mirroring window in the proportions of the device screen</description>
+    </key>
+    <key name="render-fit" type="s">
+      <choices>
+        <choice value="letterbox"/>
+        <choice value="stretched"/>
+        <choice value="unscaled"/>
+      </choices>
+      <default>"letterbox"</default>
+      <summary>Content fit</summary>
+      <description>How the device screen fills a mirroring window of different proportions</description>
+    </key>
+
     <key name="turn-screen-off" type="b">
       <default>false</default>
       <summary>Turn the device screen off</summary>
