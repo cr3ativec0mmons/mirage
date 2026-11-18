@@ -76,6 +76,15 @@ flatpak-builder --user --install --force-clean _flatpak build-aux/tech.vitainsid
   `build-aux/cargo-sources.json` (run `build-aux/update-cargo-sources.sh`).
 - Keep `x-checker-data` and sha256 in sync when bumping module versions.
 
+## Branches
+
+- `dev`: all new features and fixes land here first, until the maintainer has tested them.
+- `main`: receives `dev` once those changes are confirmed stable.
+- `release/vX.Y.Z`: when a milestone is reached, `main` is merged into the branch for the
+  version currently pending release.
+- Never commit straight to `main` or a `release/*` branch. Merges into them are done by
+  the maintainer.
+
 ## Commits
 
 Conventional Commits (`feat(ui): ...`, `fix(adb): ...`, `build(flatpak): ...`, `ci:`,
