@@ -1,0 +1,81 @@
+name: Release
+
+permissions:
+  contents: read
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  version:
+    name: Check version
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Tag matches meson.build and metainfo
+        run: |
+          version=$(grep -oP "^\s*version: '\K[^']+" meson.build | head -1)
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match meson.build version $version"
+            exit 1
+          fi
+          if ! grep -q "<release version=\"$version\"" data/tech.vitainside.mirage.metainfo.xml.in.in; then
+            echo "::error::No <release version=\"$version\"> entry in the metainfo"
+            exit 1
+          fi
+
+  flatpak:
+    name: Flatpak (${{ matrix.arch }})
+    needs: version
+    runs-on: ${{ matrix.runner }}
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-51
+      options: --privileged
+      # Mounted so unused runner toolchains can be removed to free disk space
+      volumes:
+        - /:/host
+    strategy:
+      matrix:
+        include:
+          - arch: x86_64
+            runner: ubuntu-24.04
+          - arch: aarch64
+            runner: ubuntu-24.04-arm
+    steps:
+      - name: Free disk space
+        run: |
+          rm -rf /host/usr/share/dotnet /host/usr/local/lib/android /host/opt/ghc \
+            /host/usr/local/.ghcup /host/opt/hostedtoolcache /host/usr/share/swift \
+            /host/usr/local/share/powershell /host/usr/local/share/chromium
+          df -h /
+      - uses: actions/checkout@v5
+      # Release manifest: offline build from build-aux/cargo-sources.json
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: mirage-${{ github.ref_name }}-${{ matrix.arch }}.flatpak
+          manifest-path: build-aux/tech.vitainside.mirage.json
+          cache: false
+          build-dir: /tmp/flatpak_app
+          repo-dir: /tmp/flatpak_repo
+          state-dir: /tmp/flatpak_builder
+          arch: ${{ matrix.arch }}
+
+  publish:
+    name: GitHub release
+    needs: flatpak
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >
+          gh release create "$GITHUB_REF_NAME" dist/*.flatpak
+          --verify-tag --generate-notes --title "Mirage ${GITHUB_REF_NAME#v}"
