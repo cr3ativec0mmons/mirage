@@ -22,6 +22,8 @@ use crate::scrcpy::{Options, Outcome, Recording, Session};
 
 /// How long scrcpy may take to finish the recordings when closing.
 const STOP_TIMEOUT: Duration = Duration::from_secs(5);
+/// How long an ADB server with mDNS gets to connect to a wireless device itself.
+const SERVER_CONNECT_DELAY: Duration = Duration::from_secs(5);
 
 mod imp {
     use super::*;
@@ -422,6 +424,8 @@ impl MirageWindow {
 
     /// Connects to paired devices that appear on the network. Connecting to a
     /// device that is not paired fails, so every address is only tried once.
+    /// An ADB server with mDNS connects to them by itself, under another
+    /// serial, so it gets some time first to avoid listing the device twice.
     fn auto_connect(&self, service: &Service) {
         if self.is_connected(service)
             || !self
@@ -435,7 +439,23 @@ impl MirageWindow {
 
         let client = self.imp().client.clone();
         let address = service.address.clone();
+        let service = service.clone();
+        let window = self.downgrade();
         glib::spawn_future_local(async move {
+            let server_connects = gio::spawn_blocking({
+                let client = client.clone();
+                move || client.has_mdns()
+            })
+            .await
+            .unwrap_or(false);
+            if server_connects {
+                glib::timeout_future(SERVER_CONNECT_DELAY).await;
+                match window.upgrade() {
+                    Some(window) if !window.is_connected(&service) => {}
+                    _ => return,
+                }
+            }
+
             let result = gio::spawn_blocking({
                 let address = address.clone();
                 move || client.connect_device(&address)

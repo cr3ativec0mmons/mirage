@@ -123,6 +123,13 @@ impl AdbClient {
         }
     }
 
+    /// Whether the server looks for devices on the network and connects to
+    /// paired ones by itself. Servers built without mDNS reject the request.
+    pub fn has_mdns(&self) -> bool {
+        self.query("host:mdns:check")
+            .is_ok_and(|reply| !reply.starts_with("ERROR"))
+    }
+
     /// Pairs with a device that is showing a pairing code or a QR code.
     pub fn pair(&self, address: &str, code: &str) -> Result<String> {
         let reply = self.query(&format!("host:pair:{code}:{address}"))?;
