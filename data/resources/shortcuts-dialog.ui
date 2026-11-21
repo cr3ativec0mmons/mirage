@@ -12,6 +12,12 @@
         </child>
         <child>
           <object class="AdwShortcutsItem">
+            <property name="title" translatable="yes">Rescan Devices</property>
+            <property name="action-name">win.rescan</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
             <property name="title" translatable="yes">Preferences</property>
             <property name="action-name">app.preferences</property>
           </object>

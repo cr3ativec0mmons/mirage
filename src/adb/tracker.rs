@@ -15,6 +15,8 @@ const RECONNECT_DELAY: Duration = Duration::from_millis(500);
 pub enum TrackerEvent {
     /// The complete list of devices, sent every time it changes.
     Devices(Vec<DeviceInfo>),
+    /// The tracker started the ADB server, which has no wireless devices yet.
+    ServerStarted,
     /// The ADB server could not be started or reached.
     Unavailable(String),
 }
@@ -31,6 +33,11 @@ impl TrackerHandle {
     /// Retries right away after the server was unavailable.
     pub fn retry(&self) {
         let _ = self.retry.send(());
+    }
+
+    /// Whether the tracker started the ADB server, so Mirage may restart it.
+    pub fn started_server(&self) -> bool {
+        self.started_server.load(Ordering::SeqCst)
     }
 
     /// Stops following the device list, and stops the ADB server if the
@@ -103,6 +110,7 @@ fn track(
             tracing::info!("Starting the ADB server");
             start_server()?;
             started_server.store(true, Ordering::SeqCst);
+            let _ = sender.send_blocking(TrackerEvent::ServerStarted);
             client.track_devices().map_err(|error| error.to_string())?
         }
         Err(error) => return Err(error.to_string()),

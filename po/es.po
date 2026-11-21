@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mirage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-17 19:32-0300\n"
+"POT-Creation-Date: 2026-11-17 22:49-0300\n"
 "PO-Revision-Date: 2026-11-17 16:45-0300\n"
 "Last-Translator: Martín Nehuen Quiroga Torres\n"
 "Language-Team: Spanish\n"
@@ -26,87 +26,91 @@ msgstr "General"
 msgid "Pair Device"
 msgstr "Vincular dispositivo"
 
-#: data/resources/shortcuts-dialog.ui:15
+#: data/resources/shortcuts-dialog.ui:15 data/resources/ui/window.ui:47
+msgid "Rescan Devices"
+msgstr "Volver a buscar dispositivos"
+
+#: data/resources/shortcuts-dialog.ui:21
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: data/resources/shortcuts-dialog.ui:21
+#: data/resources/shortcuts-dialog.ui:27
 msgid "Keyboard Shortcuts"
 msgstr "Atajos del teclado"
 
-#: data/resources/shortcuts-dialog.ui:27
+#: data/resources/shortcuts-dialog.ui:33
 msgid "Close Window"
 msgstr "Cerrar la ventana"
 
-#: data/resources/shortcuts-dialog.ui:33
+#: data/resources/shortcuts-dialog.ui:39
 msgid "Quit"
 msgstr "Salir"
 
-#: data/resources/shortcuts-dialog.ui:41
+#: data/resources/shortcuts-dialog.ui:47
 msgid "Mirroring Window"
 msgstr "Ventana de duplicación"
 
-#: data/resources/shortcuts-dialog.ui:44
+#: data/resources/shortcuts-dialog.ui:50
 msgid "Toggle Fullscreen"
 msgstr "Alternar la pantalla completa"
 
-#: data/resources/shortcuts-dialog.ui:50
+#: data/resources/shortcuts-dialog.ui:56
 msgid "Resize to Fit"
 msgstr "Ajustar el tamaño al contenido"
 
-#: data/resources/shortcuts-dialog.ui:56
+#: data/resources/shortcuts-dialog.ui:62
 msgid "Resize to Original Size"
 msgstr "Restablecer el tamaño original"
 
-#: data/resources/shortcuts-dialog.ui:62
+#: data/resources/shortcuts-dialog.ui:68
 msgid "Home"
 msgstr "Inicio"
 
-#: data/resources/shortcuts-dialog.ui:68
+#: data/resources/shortcuts-dialog.ui:74
 msgid "Back"
 msgstr "Atrás"
 
-#: data/resources/shortcuts-dialog.ui:74
+#: data/resources/shortcuts-dialog.ui:80
 msgid "Recent Apps"
 msgstr "Aplicaciones recientes"
 
-#: data/resources/shortcuts-dialog.ui:80
+#: data/resources/shortcuts-dialog.ui:86
 msgid "Power Button"
 msgstr "Botón de encendido"
 
-#: data/resources/shortcuts-dialog.ui:86
+#: data/resources/shortcuts-dialog.ui:92
 msgid "Volume Up"
 msgstr "Subir el volumen"
 
-#: data/resources/shortcuts-dialog.ui:92
+#: data/resources/shortcuts-dialog.ui:98
 msgid "Volume Down"
 msgstr "Bajar el volumen"
 
-#: data/resources/shortcuts-dialog.ui:98
+#: data/resources/shortcuts-dialog.ui:104
 msgid "Rotate Device Screen"
 msgstr "Girar la pantalla del dispositivo"
 
-#: data/resources/shortcuts-dialog.ui:104
+#: data/resources/shortcuts-dialog.ui:110
 msgid "Turn Device Screen Off"
 msgstr "Apagar la pantalla del dispositivo"
 
-#: data/resources/shortcuts-dialog.ui:110
+#: data/resources/shortcuts-dialog.ui:116
 msgid "Turn Device Screen On"
 msgstr "Encender la pantalla del dispositivo"
 
-#: data/resources/shortcuts-dialog.ui:116
+#: data/resources/shortcuts-dialog.ui:122
 msgid "Open Notifications"
 msgstr "Abrir las notificaciones"
 
-#: data/resources/shortcuts-dialog.ui:122
+#: data/resources/shortcuts-dialog.ui:128
 msgid "Copy Device Clipboard"
 msgstr "Copiar el portapapeles del dispositivo"
 
-#: data/resources/shortcuts-dialog.ui:128
+#: data/resources/shortcuts-dialog.ui:134
 msgid "Paste Computer Clipboard"
 msgstr "Pegar el portapapeles del equipo"
 
-#: data/resources/shortcuts-dialog.ui:134 src/widgets/device_row.rs:100
+#: data/resources/shortcuts-dialog.ui:140 src/widgets/device_row.rs:100
 msgid "Stop Mirroring"
 msgstr "Detener la duplicación"
 
@@ -143,7 +147,7 @@ msgstr ""
 msgid "Waiting for the device…"
 msgstr "Esperando al dispositivo…"
 
-#: data/resources/ui/pairing-dialog.ui:130 data/resources/ui/window.ui:95
+#: data/resources/ui/pairing-dialog.ui:130 data/resources/ui/window.ui:102
 msgid "_Try Again"
 msgstr "_Reintentar"
 
@@ -387,8 +391,8 @@ msgid "_About Mirage"
 msgstr "_Acerca de Mirage"
 
 #: data/resources/ui/window.ui:20 data/tech.vitainside.mirage.desktop.in.in:2
-#: data/tech.vitainside.mirage.metainfo.xml.in.in:7 src/application.rs:95
-#: src/main.rs:42
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:7 src/application.rs:96
+#: src/main.rs:36
 msgid "Mirage"
 msgstr "Mirage"
 
@@ -396,11 +400,11 @@ msgstr "Mirage"
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: data/resources/ui/window.ui:68
+#: data/resources/ui/window.ui:75
 msgid "No Devices"
 msgstr "No hay dispositivos"
 
-#: data/resources/ui/window.ui:69
+#: data/resources/ui/window.ui:76
 msgid ""
 "Connect a device with a USB cable, or pair one over Wi-Fi. USB debugging or "
 "wireless debugging must be turned on in the developer options of the device."
@@ -409,15 +413,15 @@ msgstr ""
 "depuración por USB o la depuración inalámbrica deben estar activadas en las "
 "opciones para desarrolladores del dispositivo."
 
-#: data/resources/ui/window.ui:72
+#: data/resources/ui/window.ui:79
 msgid "_Pair Device"
 msgstr "_Vincular dispositivo"
 
-#: data/resources/ui/window.ui:92
+#: data/resources/ui/window.ui:99
 msgid "ADB Is Not Available"
 msgstr "ADB no está disponible"
 
-#: data/resources/ui/window.ui:115
+#: data/resources/ui/window.ui:122
 msgid "Devices"
 msgstr "Dispositivos"
 
@@ -666,7 +670,7 @@ msgid "First release."
 msgstr "Primera versión."
 
 #. Translators: Replace "translator-credits" with your name and email, one translator per line
-#: src/application.rs:104
+#: src/application.rs:105
 msgid "translator-credits"
 msgstr "Martín Nehuen Quiroga Torres"
 
@@ -820,60 +824,64 @@ msgctxt "pixel density"
 msgid "Automatic"
 msgstr "Automática"
 
-#: src/widgets/window.rs:413
+#: src/widgets/window.rs:312
+msgid "Stop mirroring to look for new USB devices"
+msgstr "Detenga la duplicación para buscar nuevos dispositivos USB"
+
+#: src/widgets/window.rs:469
 msgid "Device paired"
 msgstr "Dispositivo vinculado"
 
-#: src/widgets/window.rs:448
+#: src/widgets/window.rs:504
 msgid "Could Not Start Recording"
 msgstr "No se pudo iniciar la grabación"
 
-#: src/widgets/window.rs:477
+#: src/widgets/window.rs:533
 msgid "Could Not Start Mirroring"
 msgstr "No se pudo iniciar la duplicación"
 
-#: src/widgets/window.rs:499
+#: src/widgets/window.rs:555
 #, rust-format
 msgid "{device} was disconnected"
 msgstr "Se desconectó {device}"
 
-#: src/widgets/window.rs:505
+#: src/widgets/window.rs:561
 #, rust-format
 msgid "Could Not Record {device}"
 msgstr "No se pudo grabar {device}"
 
-#: src/widgets/window.rs:507
+#: src/widgets/window.rs:563
 #, rust-format
 msgid "Could Not Mirror {device}"
 msgstr "No se pudo duplicar {device}"
 
-#: src/widgets/window.rs:518
+#: src/widgets/window.rs:574
 msgid "Recording saved"
 msgstr "Grabación guardada"
 
-#: src/widgets/window.rs:519
+#: src/widgets/window.rs:575
 msgid "_Show"
 msgstr "_Mostrar"
 
-#: src/widgets/window.rs:546
+#: src/widgets/window.rs:602
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: src/widgets/window.rs:553
+#: src/widgets/window.rs:609
 msgid "Stop Mirroring?"
 msgstr "¿Detener la duplicación?"
 
-#: src/widgets/window.rs:555
+#: src/widgets/window.rs:611
 #, rust-format
 msgid "Mirroring and recording will stop on {count} device."
 msgid_plural "Mirroring and recording will stop on {count} devices."
 msgstr[0] "Se detendrá la duplicación y la grabación en {count} dispositivo."
 msgstr[1] "Se detendrá la duplicación y la grabación en {count} dispositivos."
 
-#: src/widgets/window.rs:561
+#: src/widgets/window.rs:617
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/widgets/window.rs:562
+#: src/widgets/window.rs:618
 msgid "_Stop and Close"
 msgstr "_Detener y cerrar"

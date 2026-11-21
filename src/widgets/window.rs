@@ -50,6 +50,8 @@ mod imp {
         pub connect_services: RefCell<HashMap<String, Service>>,
         /// Addresses that were already tried, so unpaired devices are not retried.
         pub connect_attempts: RefCell<HashSet<String>>,
+        /// Wireless devices are tried again once a new server lists its devices.
+        pub reconnect_pending: Cell<bool>,
     }
 
     #[glib::object_subclass]
@@ -207,7 +209,10 @@ impl MirageWindow {
                 }
             })
             .build();
-        self.add_action_entries([pair_device, retry_adb]);
+        let rescan = gio::ActionEntry::builder("rescan")
+            .activate(|window: &Self, _, _| window.rescan())
+            .build();
+        self.add_action_entries([pair_device, retry_adb, rescan]);
     }
 
     // Device list
@@ -268,6 +273,10 @@ impl MirageWindow {
                     }
                 }
 
+                if imp.reconnect_pending.take() {
+                    self.reconnect_wireless();
+                }
+
                 let page = if devices.n_items() == 0 {
                     "empty"
                 } else {
@@ -275,11 +284,58 @@ impl MirageWindow {
                 };
                 imp.stack.set_visible_child_name(page);
             }
+            TrackerEvent::ServerStarted => imp.reconnect_pending.set(true),
             TrackerEvent::Unavailable(message) => {
                 self.devices().remove_all();
                 imp.error_page.set_description(Some(&message));
                 imp.stack.set_visible_child_name("error");
             }
+        }
+    }
+
+    /// Looks for devices again. The ADB server in the Flatpak sandbox does not
+    /// see USB devices plugged in after it started, so a server started by
+    /// Mirage is restarted to scan them again. Mirroring sessions would stop
+    /// with it, so it is left running while there are any.
+    fn rescan(&self) {
+        let imp = self.imp();
+        let Some(tracker) = imp.tracker.get() else {
+            return;
+        };
+        if !tracker.started_server() {
+            self.reconnect_wireless();
+            return;
+        }
+        if !imp.sessions.borrow().is_empty() {
+            self.reconnect_wireless();
+            self.toast(adw::Toast::new(&gettext(
+                "Stop mirroring to look for new USB devices",
+            )));
+            return;
+        }
+
+        tracing::info!("Restarting the ADB server to rescan devices");
+        imp.stack.set_visible_child_name("loading");
+        let client = imp.client.clone();
+        glib::spawn_future_local(async move {
+            if let Ok(Err(error)) = gio::spawn_blocking(move || client.kill_server()).await {
+                tracing::debug!("Could not stop the ADB server: {error}");
+            }
+        });
+    }
+
+    /// Tries again the wireless devices on the network that are not connected.
+    fn reconnect_wireless(&self) {
+        let services: Vec<Service> = self
+            .imp()
+            .connect_services
+            .borrow()
+            .values()
+            .cloned()
+            .collect();
+        self.imp().connect_attempts.borrow_mut().clear();
+        for service in services {
+            self.auto_connect(&service);
         }
     }
 

@@ -87,6 +87,7 @@ impl MirageApplication {
         self.set_accels_for_action("app.preferences", &["<Control>comma"]);
         self.set_accels_for_action("window.close", &["<Control>w"]);
         self.set_accels_for_action("win.pair-device", &["<Control>n"]);
+        self.set_accels_for_action("win.rescan", &["<Control>r", "F5"]);
     }
 
     fn show_about_dialog(&self) {

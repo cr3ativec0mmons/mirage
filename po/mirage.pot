@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mirage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-17 19:32-0300\n"
+"POT-Creation-Date: 2026-11-17 22:49-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,87 +27,91 @@ msgstr ""
 msgid "Pair Device"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:15
-msgid "Preferences"
+#: data/resources/shortcuts-dialog.ui:15 data/resources/ui/window.ui:47
+msgid "Rescan Devices"
 msgstr ""
 
 #: data/resources/shortcuts-dialog.ui:21
-msgid "Keyboard Shortcuts"
+msgid "Preferences"
 msgstr ""
 
 #: data/resources/shortcuts-dialog.ui:27
-msgid "Close Window"
+msgid "Keyboard Shortcuts"
 msgstr ""
 
 #: data/resources/shortcuts-dialog.ui:33
+msgid "Close Window"
+msgstr ""
+
+#: data/resources/shortcuts-dialog.ui:39
 msgid "Quit"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:41
+#: data/resources/shortcuts-dialog.ui:47
 msgid "Mirroring Window"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:44
+#: data/resources/shortcuts-dialog.ui:50
 msgid "Toggle Fullscreen"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:50
+#: data/resources/shortcuts-dialog.ui:56
 msgid "Resize to Fit"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:56
+#: data/resources/shortcuts-dialog.ui:62
 msgid "Resize to Original Size"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:62
+#: data/resources/shortcuts-dialog.ui:68
 msgid "Home"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:68
+#: data/resources/shortcuts-dialog.ui:74
 msgid "Back"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:74
+#: data/resources/shortcuts-dialog.ui:80
 msgid "Recent Apps"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:80
+#: data/resources/shortcuts-dialog.ui:86
 msgid "Power Button"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:86
+#: data/resources/shortcuts-dialog.ui:92
 msgid "Volume Up"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:92
+#: data/resources/shortcuts-dialog.ui:98
 msgid "Volume Down"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:98
+#: data/resources/shortcuts-dialog.ui:104
 msgid "Rotate Device Screen"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:104
+#: data/resources/shortcuts-dialog.ui:110
 msgid "Turn Device Screen Off"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:110
+#: data/resources/shortcuts-dialog.ui:116
 msgid "Turn Device Screen On"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:116
+#: data/resources/shortcuts-dialog.ui:122
 msgid "Open Notifications"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:122
+#: data/resources/shortcuts-dialog.ui:128
 msgid "Copy Device Clipboard"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:128
+#: data/resources/shortcuts-dialog.ui:134
 msgid "Paste Computer Clipboard"
 msgstr ""
 
-#: data/resources/shortcuts-dialog.ui:134 src/widgets/device_row.rs:100
+#: data/resources/shortcuts-dialog.ui:140 src/widgets/device_row.rs:100
 msgid "Stop Mirroring"
 msgstr ""
 
@@ -141,7 +145,7 @@ msgstr ""
 msgid "Waiting for the device…"
 msgstr ""
 
-#: data/resources/ui/pairing-dialog.ui:130 data/resources/ui/window.ui:95
+#: data/resources/ui/pairing-dialog.ui:130 data/resources/ui/window.ui:102
 msgid "_Try Again"
 msgstr ""
 
@@ -371,8 +375,8 @@ msgid "_About Mirage"
 msgstr ""
 
 #: data/resources/ui/window.ui:20 data/tech.vitainside.mirage.desktop.in.in:2
-#: data/tech.vitainside.mirage.metainfo.xml.in.in:7 src/application.rs:95
-#: src/main.rs:42
+#: data/tech.vitainside.mirage.metainfo.xml.in.in:7 src/application.rs:96
+#: src/main.rs:36
 msgid "Mirage"
 msgstr ""
 
@@ -380,25 +384,25 @@ msgstr ""
 msgid "Main Menu"
 msgstr ""
 
-#: data/resources/ui/window.ui:68
+#: data/resources/ui/window.ui:75
 msgid "No Devices"
 msgstr ""
 
-#: data/resources/ui/window.ui:69
+#: data/resources/ui/window.ui:76
 msgid ""
 "Connect a device with a USB cable, or pair one over Wi-Fi. USB debugging or "
 "wireless debugging must be turned on in the developer options of the device."
 msgstr ""
 
-#: data/resources/ui/window.ui:72
+#: data/resources/ui/window.ui:79
 msgid "_Pair Device"
 msgstr ""
 
-#: data/resources/ui/window.ui:92
+#: data/resources/ui/window.ui:99
 msgid "ADB Is Not Available"
 msgstr ""
 
-#: data/resources/ui/window.ui:115
+#: data/resources/ui/window.ui:122
 msgid "Devices"
 msgstr ""
 
@@ -623,7 +627,7 @@ msgid "First release."
 msgstr ""
 
 #. Translators: Replace "translator-credits" with your name and email, one translator per line
-#: src/application.rs:104
+#: src/application.rs:105
 msgid "translator-credits"
 msgstr ""
 
@@ -775,60 +779,64 @@ msgctxt "pixel density"
 msgid "Automatic"
 msgstr ""
 
-#: src/widgets/window.rs:413
+#: src/widgets/window.rs:312
+msgid "Stop mirroring to look for new USB devices"
+msgstr ""
+
+#: src/widgets/window.rs:469
 msgid "Device paired"
 msgstr ""
 
-#: src/widgets/window.rs:448
+#: src/widgets/window.rs:504
 msgid "Could Not Start Recording"
 msgstr ""
 
-#: src/widgets/window.rs:477
+#: src/widgets/window.rs:533
 msgid "Could Not Start Mirroring"
 msgstr ""
 
-#: src/widgets/window.rs:499
+#: src/widgets/window.rs:555
 #, rust-format
 msgid "{device} was disconnected"
 msgstr ""
 
-#: src/widgets/window.rs:505
+#: src/widgets/window.rs:561
 #, rust-format
 msgid "Could Not Record {device}"
 msgstr ""
 
-#: src/widgets/window.rs:507
+#: src/widgets/window.rs:563
 #, rust-format
 msgid "Could Not Mirror {device}"
 msgstr ""
 
-#: src/widgets/window.rs:518
+#: src/widgets/window.rs:574
 msgid "Recording saved"
 msgstr ""
 
-#: src/widgets/window.rs:519
+#: src/widgets/window.rs:575
 msgid "_Show"
 msgstr ""
 
-#: src/widgets/window.rs:546
+#: src/widgets/window.rs:602
 msgid "_Close"
 msgstr ""
 
-#: src/widgets/window.rs:553
+#: src/widgets/window.rs:609
 msgid "Stop Mirroring?"
 msgstr ""
 
-#: src/widgets/window.rs:555
+#: src/widgets/window.rs:611
 #, rust-format
 msgid "Mirroring and recording will stop on {count} device."
 msgid_plural "Mirroring and recording will stop on {count} devices."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/widgets/window.rs:561
+#: src/widgets/window.rs:617
 msgid "_Cancel"
 msgstr ""
 
-#: src/widgets/window.rs:562
+#: src/widgets/window.rs:618
 msgid "_Stop and Close"
 msgstr ""

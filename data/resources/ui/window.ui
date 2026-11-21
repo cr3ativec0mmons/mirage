@@ -41,6 +41,13 @@
                     <property name="tooltip-text" translatable="yes">Main Menu</property>
                   </object>
                 </child>
+                <child type="end">
+                  <object class="GtkButton">
+                    <property name="icon-name">view-refresh-symbolic</property>
+                    <property name="tooltip-text" translatable="yes">Rescan Devices</property>
+                    <property name="action-name">win.rescan</property>
+                  </object>
+                </child>
               </object>
             </child>
             <property name="content">
